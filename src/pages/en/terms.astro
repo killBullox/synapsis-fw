@@ -1,0 +1,104 @@
+---
+import Layout from '@layouts/Layout.astro';
+import PageHero from '@components/PageHero.astro';
+import Prose from '@components/Prose.astro';
+
+const lastUpdated = 'Last updated: 27 April 2026';
+---
+
+<Layout
+  title="Terms & Conditions — Synapsis FW"
+  description="Terms and conditions of use of synapsisfw.it."
+>
+  <PageHero
+    eyebrow="Terms of use"
+    title="Terms & Conditions"
+    lede="These Terms govern access to and use of synapsisfw.it. By browsing the site the user fully accepts what is stated herein."
+    lastUpdated={lastUpdated}
+  />
+
+  <section class="bg-brand-paper pb-section md:pb-32">
+    <div class="container-page">
+      <Prose>
+        <div class="callout">
+          <strong>Template document.</strong> This text must be reviewed by legal counsel before publication. Fields in <span class="placeholder">[brackets]</span> must be filled with the company's real data.
+        </div>
+
+        <h2>1. Object and scope</h2>
+        <p>
+          The website <a href="https://synapsisfw.it">synapsisfw.it</a> (the "Site") is owned by <span class="placeholder">[ENTER COMPANY NAME]</span>, with registered office in <span class="placeholder">[ENTER ADDRESS]</span>, VAT <span class="placeholder">[ENTER VAT NUMBER]</span> ("Synapsis FW" or "Owner").
+        </p>
+        <p>
+          These Terms govern access, consultation and use of the Site by users. Use of the Site implies full acceptance of these Terms.
+        </p>
+
+        <h2>2. Intellectual property</h2>
+        <p>
+          All content on the Site — including, by way of example, text, graphics, logos, trademarks, images, video, code, fonts and the related selection, organisation and arrangement — is owned by Synapsis FW or its licensors and is protected by national and international copyright, trademark and industrial property law.
+        </p>
+        <p>
+          Reproduction, modification, distribution, publication or use, in whole or in part, of the Site's contents without the Owner's prior written consent is prohibited, except for the right of personal, non-commercial consultation.
+        </p>
+
+        <h2>3. Use of the Site</h2>
+        <p>The user undertakes to use the Site in compliance with the law, public order and decency. It is forbidden to:</p>
+        <ul>
+          <li>use the Site for unlawful purposes or contrary to these Terms;</li>
+          <li>perform activities that may compromise the security, availability or integrity of the Site;</li>
+          <li>use bots, scrapers or other automated tools without authorisation;</li>
+          <li>attempt to access restricted areas of the Site or the Owner's IT systems.</li>
+        </ul>
+
+        <h2>4. Informational content</h2>
+        <p>
+          The contents of the Site are for informational purposes and do not constitute a public offer, nor a contractual commitment of the Owner. All projects, quotes and economic conditions relating to the <strong>Fee Waiver</strong> model are subject to case-by-case definition and the signing of a specific contract.
+        </p>
+        <p>
+          Synapsis FW reserves the right to modify the contents, structure and functionality of the Site at any time and without notice.
+        </p>
+
+        <h2>5. Limitation of liability</h2>
+        <p>
+          The Owner undertakes to ensure the quality and accuracy of the Site's contents. However, it assumes no liability for:
+        </p>
+        <ul>
+          <li>any interruptions, malfunctions or technical errors of the Site;</li>
+          <li>inaccuracies or errors in the contents, except in case of wilful misconduct or gross negligence;</li>
+          <li>damages arising from the use or inability to use the Site;</li>
+          <li>contents of third-party sites accessible via links on the Site.</li>
+        </ul>
+
+        <h2>6. Links to third-party sites</h2>
+        <p>
+          The Site may contain links to third-party websites. The Owner does not control and is not responsible for the contents, policies and practices of such sites. The presence of a link does not imply any endorsement or guarantee by the Owner.
+        </p>
+
+        <h2>7. Personal data processing</h2>
+        <p>
+          For the processing of personal data collected through the Site, please refer in full to the <a href="/en/privacy">Privacy Policy</a> and the <a href="/en/cookie-policy">Cookie Policy</a>.
+        </p>
+
+        <h2>8. Changes to the Terms</h2>
+        <p>
+          Synapsis FW reserves the right to modify these Terms at any time. Changes will be effective from publication on the Site. Continued use of the Site after publication constitutes acceptance of the changes.
+        </p>
+
+        <h2>9. Applicable law and jurisdiction</h2>
+        <p>
+          These Terms are governed by Italian law. For any dispute arising from the interpretation, execution or termination of these Terms, the Court of <span class="placeholder">[ENTER COMPETENT COURT — e.g. Milan]</span> shall have exclusive jurisdiction, save for the application of different mandatory rules protecting consumers.
+        </p>
+
+        <h2>10. Contact</h2>
+        <p>
+          For any request or clarification on these Terms, contact:
+          <br /><a href="mailto:info@synapsisfw.it">info@synapsisfw.it</a>
+        </p>
+
+        <hr />
+        <p style="font-size: 0.85rem; opacity: 0.6;">
+          {lastUpdated}
+        </p>
+      </Prose>
+    </div>
+  </section>
+</Layout>

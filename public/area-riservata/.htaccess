@@ -1,0 +1,13 @@
+# Synapsis FW — Area Riservata
+# Protezione HTTP Basic Auth (Apache mod_auth_basic)
+# Le credenziali sono in .htpasswd nella stessa cartella (generato con bcrypt).
+
+AuthType Basic
+AuthName "Synapsis FW - Area Riservata"
+AuthUserFile "/web/htdocs/www.synapsisfw.it/home/area-riservata/.htpasswd"
+Require valid-user
+
+# Blocca download diretto del file delle credenziali
+<Files ".htpasswd">
+  Require all denied
+</Files>

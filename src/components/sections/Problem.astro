@@ -1,0 +1,71 @@
+---
+import SectionHeader from '@components/SectionHeader.astro';
+import { getLangFromUrl, useTranslations } from '@i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const items = [0, 1, 2, 3].map((i) => ({
+  title: t(`problem.items.${i}.title` as any),
+  body: t(`problem.items.${i}.body` as any),
+}));
+
+const stats = [
+  { value: '68%', label: lang === 'it' ? 'progetti fuori budget' : 'projects over budget' },
+  { value: '4–6', label: lang === 'it' ? 'progettisti per cantiere' : 'designers per project' },
+  { value: '30%', label: lang === 'it' ? 'tempo in coordinamento' : 'time on coordination' },
+  { value: '15%', label: lang === 'it' ? 'extra costi da varianti' : 'cost from variants' },
+];
+---
+
+<section
+  id="problema"
+  class="relative overflow-hidden bg-brand-ink py-section text-brand-paper md:py-32"
+>
+  <div class="container-page">
+    <SectionHeader
+      eyebrow={t('problem.eyebrow')}
+      title={t('problem.title')}
+      lede={t('problem.lede')}
+      tone="ink"
+    />
+
+    <!-- Stats row -->
+    <div class="mt-16 grid grid-cols-2 gap-8 border-y border-brand-paper/10 py-10 md:mt-20 md:grid-cols-4 md:gap-4 md:py-14">
+      {stats.map((s) => (
+        <div class="reveal">
+          <p class="font-display text-5xl leading-none tracking-tight text-brand-orange md:text-6xl lg:text-7xl">
+            {s.value}
+          </p>
+          <p class="mt-3 max-w-[18ch] text-xs uppercase tracking-[0.15em] text-brand-paper/60 md:text-sm">
+            {s.label}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <!-- 4 problem cards -->
+    <div class="mt-16 grid gap-px bg-brand-paper/10 md:mt-24 md:grid-cols-2">
+      {items.map((item, i) => (
+        <article class="reveal group relative bg-brand-ink p-8 transition-colors hover:bg-brand-ink/60 md:p-12">
+          <div class="flex items-start gap-6">
+            <span class="font-display text-5xl leading-none text-brand-orange md:text-6xl">
+              0{i + 1}
+            </span>
+            <div class="flex-1">
+              <h3 class="font-display text-2xl leading-tight md:text-3xl">
+                {item.title}
+              </h3>
+              <p class="mt-4 text-balance leading-relaxed text-brand-paper/70">
+                {item.body}
+              </p>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+
+  <!-- Decor -->
+  <div class="pointer-events-none absolute -right-40 -top-40 h-[500px] w-[500px] rounded-full bg-brand-orange/10 blur-[120px]"></div>
+</section>

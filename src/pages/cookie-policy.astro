@@ -1,0 +1,112 @@
+---
+import Layout from '@layouts/Layout.astro';
+import PageHero from '@components/PageHero.astro';
+import Prose from '@components/Prose.astro';
+
+const lastUpdated = 'Ultimo aggiornamento: 27 aprile 2026';
+---
+
+<Layout
+  title="Cookie Policy — Synapsis FW"
+  description="Informativa sui cookie utilizzati dal sito synapsisfw.it ai sensi del Provvedimento del Garante Privacy del 10 giugno 2021."
+>
+  <PageHero
+    eyebrow="Informativa cookie"
+    title="Cookie Policy"
+    lede="Informazioni sui cookie e le tecnologie di tracciamento utilizzati dal sito synapsisfw.it, ai sensi del Provvedimento del Garante per la protezione dei dati personali del 10 giugno 2021 e della Direttiva ePrivacy 2009/136/CE."
+    lastUpdated={lastUpdated}
+  />
+
+  <section class="bg-brand-paper pb-section md:pb-32">
+    <div class="container-page">
+      <Prose>
+        <div class="callout">
+          <strong>Documento template.</strong> Aggiornare l'elenco cookie effettivamente utilizzati dopo l'integrazione di eventuali strumenti di analytics, marketing o terze parti. Per documenti production-ready si consiglia un servizio specializzato (Iubenda, OneTrust, Cookiebot).
+        </div>
+
+        <h2>1. Cosa sono i cookie</h2>
+        <p>
+          I cookie sono piccoli file di testo che i siti visitati dagli utenti inviano ai loro terminali (computer, smartphone, tablet), dove vengono memorizzati per essere ritrasmessi agli stessi siti in occasione di visite successive. I cookie sono utilizzati per diverse finalità: esecuzione di autenticazioni, monitoraggio di sessioni, memorizzazione di informazioni su preferenze, raccolta di statistiche, profilazione.
+        </p>
+
+        <h2>2. Tipologie di cookie utilizzate</h2>
+
+        <h3>2.1 Cookie tecnici (necessari)</h3>
+        <p>
+          Questi cookie sono indispensabili per il corretto funzionamento del sito. Non richiedono il consenso preventivo dell'utente.
+        </p>
+        <table>
+          <thead>
+            <tr><th>Nome</th><th>Finalità</th><th>Durata</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>sfw-cookie-consent</code></td>
+              <td>Memorizza la scelta dell'utente sul banner cookie (accetta/rifiuta)</td>
+              <td>1 anno</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>2.2 Cookie analitici</h3>
+        <p>
+          Attualmente <strong>il sito non utilizza cookie analitici</strong>. Qualora venissero implementati strumenti di analytics (es. Google Analytics, Plausible, Matomo), questa sezione verrà aggiornata e il consenso esplicito dell'utente sarà richiesto tramite il banner cookie.
+        </p>
+        <p class="placeholder" style="display:block; padding:1rem;">
+          [Aggiornare questa sezione una volta integrato Google Analytics 4 o altro strumento]
+        </p>
+
+        <h3>2.3 Cookie di profilazione e marketing</h3>
+        <p>
+          <strong>Il sito non utilizza cookie di profilazione o marketing.</strong> Non sono presenti pixel di tracciamento di terze parti (Meta Pixel, LinkedIn Insight Tag, Google Ads, ecc.).
+        </p>
+
+        <h3>2.4 Cookie di terze parti</h3>
+        <p>
+          Il sito utilizza alcuni servizi di terze parti che possono installare cookie sul dispositivo dell'utente:
+        </p>
+        <ul>
+          <li>
+            <strong>Google Fonts</strong> — caricamento font web (Fraunces, Inter).
+            <br />Privacy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>
+          </li>
+          <li>
+            <strong>Web3Forms</strong> — invio form di contatto (solo in fase di submit, no tracking persistente).
+            <br />Privacy: <a href="https://web3forms.com/privacy" target="_blank" rel="noopener">web3forms.com/privacy</a>
+          </li>
+        </ul>
+
+        <h2>3. Come gestire le preferenze cookie</h2>
+        <p>
+          L'utente può accettare o rifiutare i cookie non necessari attraverso il banner che appare alla prima visita del sito. La scelta può essere modificata in qualsiasi momento cancellando la chiave <code>sfw-cookie-consent</code> dal localStorage del browser, oppure cliccando sul link <a href="#" onclick="localStorage.removeItem('sfw-cookie-consent'); location.reload(); return false;">"Reimposta preferenze cookie"</a>.
+        </p>
+
+        <h3>Gestione tramite browser</h3>
+        <p>
+          È possibile gestire i cookie anche dalle impostazioni del proprio browser:
+        </p>
+        <ul>
+          <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Google Chrome</a></li>
+          <li><a href="https://support.mozilla.org/it/kb/Attivare%20e%20disattivare%20i%20cookie" target="_blank" rel="noopener">Mozilla Firefox</a></li>
+          <li><a href="https://support.apple.com/it-it/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Apple Safari</a></li>
+          <li><a href="https://support.microsoft.com/it-it/microsoft-edge" target="_blank" rel="noopener">Microsoft Edge</a></li>
+        </ul>
+
+        <h2>4. Titolare del trattamento</h2>
+        <p>
+          Per informazioni sul titolare del trattamento e sui diritti dell'interessato, si rinvia alla <a href="/privacy">Privacy Policy</a>.
+        </p>
+
+        <h2>5. Modifiche alla Cookie Policy</h2>
+        <p>
+          La presente Cookie Policy può essere aggiornata in qualsiasi momento per recepire modifiche normative o tecnologiche. La data di ultimo aggiornamento è indicata in fondo alla pagina.
+        </p>
+
+        <hr />
+        <p style="font-size: 0.85rem; opacity: 0.6;">
+          {lastUpdated}
+        </p>
+      </Prose>
+    </div>
+  </section>
+</Layout>

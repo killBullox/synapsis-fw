@@ -1,0 +1,110 @@
+---
+import Layout from '@layouts/Layout.astro';
+import PageHero from '@components/PageHero.astro';
+import Prose from '@components/Prose.astro';
+
+const lastUpdated = 'Last updated: 27 April 2026';
+---
+
+<Layout
+  title="Cookie Policy — Synapsis FW"
+  description="Information on the cookies used by synapsisfw.it."
+>
+  <PageHero
+    eyebrow="Cookie notice"
+    title="Cookie Policy"
+    lede="Information on cookies and tracking technologies used by synapsisfw.it, pursuant to the Italian Data Protection Authority's order of 10 June 2021 and ePrivacy Directive 2009/136/EC."
+    lastUpdated={lastUpdated}
+  />
+
+  <section class="bg-brand-paper pb-section md:pb-32">
+    <div class="container-page">
+      <Prose>
+        <div class="callout">
+          <strong>Template document.</strong> Update the list of cookies actually used after integrating any analytics, marketing or third-party tools. For production-ready documents we recommend a specialised service (Iubenda, OneTrust, Cookiebot).
+        </div>
+
+        <h2>1. What are cookies</h2>
+        <p>
+          Cookies are small text files that visited sites send to users' terminals (computer, smartphone, tablet), where they are stored to be transmitted back to the same sites on subsequent visits. Cookies are used for several purposes: authentication, session monitoring, storage of preferences, statistics gathering, profiling.
+        </p>
+
+        <h2>2. Types of cookies used</h2>
+
+        <h3>2.1 Technical cookies (necessary)</h3>
+        <p>
+          These cookies are essential for the proper functioning of the site. They do not require prior user consent.
+        </p>
+        <table>
+          <thead>
+            <tr><th>Name</th><th>Purpose</th><th>Duration</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>sfw-cookie-consent</code></td>
+              <td>Stores the user's choice on the cookie banner (accept/reject)</td>
+              <td>1 year</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>2.2 Analytics cookies</h3>
+        <p>
+          The site currently <strong>does not use analytics cookies</strong>. If analytics tools (e.g. Google Analytics, Plausible, Matomo) are integrated, this section will be updated and explicit user consent will be required through the cookie banner.
+        </p>
+        <p class="placeholder" style="display:block; padding:1rem;">
+          [Update this section once Google Analytics 4 or another tool is integrated]
+        </p>
+
+        <h3>2.3 Profiling and marketing cookies</h3>
+        <p>
+          <strong>The site does not use profiling or marketing cookies.</strong> No third-party tracking pixels are present (Meta Pixel, LinkedIn Insight Tag, Google Ads, etc.).
+        </p>
+
+        <h3>2.4 Third-party cookies</h3>
+        <p>
+          The site uses some third-party services that may install cookies on the user's device:
+        </p>
+        <ul>
+          <li>
+            <strong>Google Fonts</strong> — web fonts loading (Fraunces, Inter).
+            <br />Privacy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>
+          </li>
+          <li>
+            <strong>Web3Forms</strong> — contact form submission (only at submit time, no persistent tracking).
+            <br />Privacy: <a href="https://web3forms.com/privacy" target="_blank" rel="noopener">web3forms.com/privacy</a>
+          </li>
+        </ul>
+
+        <h2>3. Managing cookie preferences</h2>
+        <p>
+          The user can accept or reject non-necessary cookies through the banner that appears on the first visit. The choice can be modified at any time by deleting the <code>sfw-cookie-consent</code> key from browser localStorage, or by clicking <a href="#" onclick="localStorage.removeItem('sfw-cookie-consent'); location.reload(); return false;">"Reset cookie preferences"</a>.
+        </p>
+
+        <h3>Browser-level management</h3>
+        <p>Cookies can also be managed from your browser settings:</p>
+        <ul>
+          <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Google Chrome</a></li>
+          <li><a href="https://support.mozilla.org/en-US/kb/enable-and-disable-cookies-website-preferences" target="_blank" rel="noopener">Mozilla Firefox</a></li>
+          <li><a href="https://support.apple.com/en-us/guide/safari/sfri11471/mac" target="_blank" rel="noopener">Apple Safari</a></li>
+          <li><a href="https://support.microsoft.com/en-us/microsoft-edge" target="_blank" rel="noopener">Microsoft Edge</a></li>
+        </ul>
+
+        <h2>4. Data controller</h2>
+        <p>
+          For information on the data controller and the rights of the data subject, please refer to the <a href="/en/privacy">Privacy Policy</a>.
+        </p>
+
+        <h2>5. Changes to the Cookie Policy</h2>
+        <p>
+          This Cookie Policy may be updated at any time to reflect regulatory or technological changes. The date of the last update is indicated at the bottom of the page.
+        </p>
+
+        <hr />
+        <p style="font-size: 0.85rem; opacity: 0.6;">
+          {lastUpdated}
+        </p>
+      </Prose>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,70 @@
+---
+import Layout from '@layouts/Layout.astro';
+
+const lang = Astro.url.pathname.startsWith('/en/') ? 'en' : 'it';
+
+const copy = lang === 'it'
+  ? {
+      eyebrow: 'Errore 404',
+      title: 'Pagina non trovata.',
+      lede: 'La pagina che stai cercando non esiste, è stata spostata o non è più disponibile. Torna alla home o scrivici se pensi sia un errore.',
+      home: 'Torna alla home',
+      contact: 'Scrivici',
+      title_meta: 'Pagina non trovata — Synapsis FW',
+    }
+  : {
+      eyebrow: 'Error 404',
+      title: 'Page not found.',
+      lede: 'The page you are looking for doesn\'t exist, was moved or is no longer available. Go back to the home or contact us if you think this is an error.',
+      home: 'Back to home',
+      contact: 'Contact us',
+      title_meta: 'Page not found — Synapsis FW',
+    };
+
+const homePath = lang === 'it' ? '/' : '/en/';
+const contactPath = lang === 'it' ? '/#contatti' : '/en/#contatti';
+---
+
+<Layout title={copy.title_meta}>
+  <section class="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden bg-brand-paper pt-32 pb-16 md:pt-40">
+    <div class="container-page text-center">
+      <span class="reveal eyebrow inline-flex items-center bg-brand-orange/12 text-brand-orange">
+        {copy.eyebrow}
+      </span>
+
+      <p class="reveal mt-10 font-display text-[clamp(6rem,18vw,16rem)] leading-none tracking-tight text-brand-orange">
+        404
+      </p>
+
+      <h1 class="reveal mx-auto mt-6 max-w-3xl font-display text-balance text-[clamp(2rem,5vw,4rem)] leading-tight tracking-tight">
+        {copy.title}
+      </h1>
+
+      <p class="reveal mx-auto mt-6 max-w-xl text-balance text-base leading-relaxed text-brand-ink/70 md:text-lg">
+        {copy.lede}
+      </p>
+
+      <div class="reveal mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <a
+          href={homePath}
+          class="inline-flex items-center justify-center gap-2 rounded-full bg-brand-ink px-7 py-4 text-sm font-medium text-white transition-all hover:bg-brand-orange"
+        >
+          {copy.home}
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </a>
+        <a
+          href={contactPath}
+          class="inline-flex items-center justify-center gap-2 rounded-full border border-brand-ink/20 bg-transparent px-7 py-4 text-sm font-medium text-brand-ink transition-all hover:border-brand-ink/40 hover:bg-brand-cream"
+        >
+          {copy.contact}
+        </a>
+      </div>
+    </div>
+
+    <!-- Decor -->
+    <div class="pointer-events-none absolute -right-32 top-1/2 h-[480px] w-[480px] rounded-full bg-brand-orange/8 blur-3xl"></div>
+    <div class="pointer-events-none absolute -left-32 bottom-0 h-[360px] w-[360px] rounded-full bg-brand-amber/12 blur-3xl"></div>
+  </section>
+</Layout>

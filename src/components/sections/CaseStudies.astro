@@ -1,0 +1,115 @@
+---
+import SectionHeader from '@components/SectionHeader.astro';
+import { getLangFromUrl, useTranslations } from '@i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const cases = [
+  {
+    tag: t('cases.items.0.tag'),
+    title: t('cases.items.0.title'),
+    body: t('cases.items.0.body'),
+    quote: t('cases.items.0.quote'),
+    author: t('cases.items.0.author'),
+    stats: [
+      { value: '450', unit: 'mq', label: lang === 'it' ? 'Superficie' : 'Surface' },
+      { value: '€32k', unit: '', label: lang === 'it' ? 'Risparmio Fee Waiver' : 'Fee Waiver savings' },
+      { value: '−40%', unit: '', label: lang === 'it' ? 'Tempo progettazione' : 'Design time' },
+      { value: '5', unit: '', label: lang === 'it' ? 'Discipline integrate' : 'Integrated disciplines' },
+    ],
+    keywords: ['KNX', 'Lutron', 'HVAC pompa di calore'],
+  },
+  {
+    tag: t('cases.items.1.tag'),
+    title: t('cases.items.1.title'),
+    body: t('cases.items.1.body'),
+    quote: t('cases.items.1.quote'),
+    author: t('cases.items.1.author'),
+    stats: [
+      { value: '3.200', unit: 'mq', label: lang === 'it' ? 'Superficie' : 'Surface' },
+      { value: '€87k', unit: '', label: lang === 'it' ? 'Risparmio Fee Waiver' : 'Fee Waiver savings' },
+      { value: '−2', unit: lang === 'it' ? 'sett.' : 'wks', label: lang === 'it' ? 'Anticipo consegna' : 'Early delivery' },
+      { value: '1', unit: '', label: lang === 'it' ? 'Fornitore (vs 7)' : 'Supplier (vs 7)' },
+    ],
+    keywords: ['LEED Gold', 'Siemens Desigo CC', '80 kWp PV'],
+  },
+];
+---
+
+<section
+  id="case-study"
+  class="relative overflow-hidden bg-brand-cream py-section md:py-32"
+>
+  <div class="container-page">
+    <SectionHeader
+      eyebrow={t('cases.eyebrow')}
+      title={t('cases.title')}
+    />
+
+    <div class="mt-20 space-y-16 md:mt-28 md:space-y-24">
+      {cases.map((c, i) => (
+        <article class="reveal grid gap-10 md:grid-cols-12 md:gap-12">
+          <!-- Visual placeholder -->
+          <div class={`relative aspect-[4/5] overflow-hidden rounded-3xl md:col-span-5 md:aspect-[3/4] ${i % 2 === 1 ? 'md:order-2' : ''}`}>
+            <div class="absolute inset-0 bg-gradient-to-br from-brand-amber via-brand-orange to-brand-orange-deep"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.4),transparent_60%)]"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(0,0,0,0.3),transparent_50%)]"></div>
+            <!-- Linee architettoniche -->
+            <svg class="absolute inset-0 h-full w-full opacity-30" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <g stroke="white" stroke-width="0.5" fill="none" opacity="0.6">
+                <path d="M0 100 L400 100 M0 200 L400 200 M0 300 L400 300 M0 400 L400 400"/>
+                <path d="M100 0 L100 500 M200 0 L200 500 M300 0 L300 500"/>
+                <path d="M50 50 L350 50 L350 450 L50 450 Z" stroke-width="1"/>
+                <path d="M50 50 L350 450 M350 50 L50 450" stroke-width="0.3"/>
+              </g>
+            </svg>
+            <div class="absolute bottom-6 left-6 right-6 text-brand-paper">
+              <p class="text-xs uppercase tracking-[0.2em] opacity-80">{c.tag}</p>
+              <p class="mt-2 font-display text-2xl leading-tight md:text-3xl">{c.title}</p>
+            </div>
+          </div>
+
+          <div class={`flex flex-col justify-between md:col-span-7 ${i % 2 === 1 ? 'md:order-1' : ''}`}>
+            <div>
+              <p class="text-balance text-lg leading-relaxed text-brand-ink/75 md:text-xl">
+                {c.body}
+              </p>
+
+              <!-- Stats -->
+              <div class="mt-10 grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-brand-ink/10 md:grid-cols-4">
+                {c.stats.map((s) => (
+                  <div class="bg-brand-cream p-5">
+                    <p class="font-display text-3xl leading-none tracking-tight md:text-4xl">
+                      {s.value}<span class="text-base text-brand-ink/50"> {s.unit}</span>
+                    </p>
+                    <p class="mt-2 text-[11px] uppercase tracking-[0.15em] text-brand-ink/55">
+                      {s.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              <!-- Keywords -->
+              <div class="mt-6 flex flex-wrap gap-2">
+                {c.keywords.map((k) => (
+                  <span class="rounded-full border border-brand-ink/15 bg-brand-paper px-3 py-1 text-xs font-medium text-brand-ink/70">
+                    {k}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <!-- Quote -->
+            <blockquote class="mt-10 border-l-2 border-brand-orange pl-6">
+              <p class="font-display text-xl italic leading-snug text-brand-ink md:text-2xl">
+                {c.quote}
+              </p>
+              <footer class="mt-4 text-sm text-brand-ink/60">— {c.author}</footer>
+            </blockquote>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,11 @@
+# Synapsis FW — Private Area
+# HTTP Basic Auth protection (Apache mod_auth_basic)
+
+AuthType Basic
+AuthName "Synapsis FW - Private Area"
+AuthUserFile "/web/htdocs/www.synapsisfw.it/home/en/private-area/.htpasswd"
+Require valid-user
+
+<Files ".htpasswd">
+  Require all denied
+</Files>

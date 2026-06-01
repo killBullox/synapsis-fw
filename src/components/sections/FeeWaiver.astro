@@ -1,0 +1,98 @@
+---
+import SectionHeader from '@components/SectionHeader.astro';
+import { getLangFromUrl, useTranslations } from '@i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const scenarios = [0, 1, 2].map((i) => ({
+  tag: t(`fee.scenarios.${i}.tag` as any),
+  title: t(`fee.scenarios.${i}.title` as any),
+  body: t(`fee.scenarios.${i}.body` as any),
+  highlight: t(`fee.scenarios.${i}.tag2` as any),
+}));
+
+const tones = [
+  // Scenario 1 — massimo vantaggio (dominante orange)
+  {
+    bg: 'bg-gradient-to-br from-brand-orange to-brand-orange-light text-brand-paper',
+    accent: 'text-brand-paper/80',
+    chip: 'bg-brand-paper/15 text-brand-paper',
+    num: 'text-brand-paper/30',
+    border: 'border-brand-paper/15',
+  },
+  // Scenario 2 — intermedio (cream)
+  {
+    bg: 'bg-brand-cream text-brand-ink',
+    accent: 'text-brand-ink/70',
+    chip: 'bg-brand-orange/15 text-brand-orange',
+    num: 'text-brand-orange/30',
+    border: 'border-brand-ink/10',
+  },
+  // Scenario 3 — alternativa (paper neutro)
+  {
+    bg: 'bg-brand-paper text-brand-ink',
+    accent: 'text-brand-ink/65',
+    chip: 'bg-brand-ink/8 text-brand-ink',
+    num: 'text-brand-ink/15',
+    border: 'border-brand-ink/10',
+  },
+];
+---
+
+<section
+  id="fee-waiver"
+  class="relative overflow-hidden bg-brand-paper py-section md:py-32"
+>
+  <div class="container-page">
+    <SectionHeader
+      eyebrow={t('fee.eyebrow')}
+      title={t('fee.title')}
+      lede={t('fee.lede')}
+    />
+
+    <!-- Intro tre scenari -->
+    <div class="reveal mt-12 grid gap-8 border-t border-brand-ink/10 pt-12 md:mt-16 md:grid-cols-12 md:gap-12 md:pt-14">
+      <p class="text-xs font-medium uppercase tracking-[0.18em] text-brand-orange md:col-span-3">
+        {lang === 'it' ? 'Tre scenari' : 'Three scenarios'}
+      </p>
+      <p class="text-balance text-lg leading-relaxed text-brand-ink/80 md:col-span-9 md:text-xl">
+        {t('fee.intro')}
+      </p>
+    </div>
+
+    <div class="mt-12 grid gap-6 md:mt-16 md:grid-cols-3">
+      {scenarios.map((s, i) => (
+        <article
+          class={`reveal relative flex flex-col overflow-hidden rounded-3xl border p-8 md:p-10 ${tones[i].bg} ${tones[i].border}`}
+        >
+          <span class={`font-display text-7xl leading-none md:text-8xl ${tones[i].num}`}>
+            0{i + 1}
+          </span>
+          <span class={`mt-6 inline-flex w-fit items-center rounded-full px-3 py-1 text-xs font-medium uppercase tracking-[0.15em] ${tones[i].chip}`}>
+            {s.tag}
+          </span>
+          <h3 class="mt-5 font-display text-2xl leading-tight md:text-3xl">
+            {s.title}
+          </h3>
+          <p class={`mt-4 flex-1 text-sm leading-relaxed md:text-base ${tones[i].accent}`}>
+            {s.body}
+          </p>
+          <div class={`mt-8 flex items-center justify-between border-t pt-5 text-xs uppercase tracking-[0.18em] ${tones[i].border}`}>
+            <span>{s.highlight}</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M2 8h12m0 0L8 2m6 6l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Footnote -->
+    <p class="reveal mt-12 max-w-2xl text-sm leading-relaxed text-brand-ink/55">
+      {lang === 'it'
+        ? 'Il bonus % e il cashback sono definiti progetto per progetto in funzione della complessità e del valore della commessa.'
+        : 'The bonus % and cashback are defined project by project, based on the complexity and value of the commission.'}
+    </p>
+  </div>
+</section>

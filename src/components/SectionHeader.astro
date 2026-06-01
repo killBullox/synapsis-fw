@@ -1,0 +1,38 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  lede?: string;
+  align?: 'left' | 'center';
+  tone?: 'paper' | 'cream' | 'ink';
+  id?: string;
+}
+
+const { eyebrow, title, lede, align = 'left', tone = 'paper', id } = Astro.props;
+
+const alignClass = align === 'center' ? 'text-center mx-auto' : '';
+const eyebrowTone =
+  tone === 'ink'
+    ? 'border border-brand-orange/50 bg-transparent text-brand-orange-light'
+    : 'bg-brand-orange/12 text-brand-orange';
+const titleTone = tone === 'ink' ? 'text-brand-paper' : 'text-brand-ink';
+const ledeTone = tone === 'ink' ? 'text-brand-paper/70' : 'text-brand-ink/70';
+---
+
+<header class={`max-w-4xl ${alignClass}`} {...id ? { id } : {}}>
+  <span
+    class={`reveal eyebrow inline-flex items-center ${eyebrowTone}`}
+  >
+    {eyebrow}
+  </span>
+  <h2
+    class={`reveal mt-6 font-display text-balance text-[clamp(2.25rem,5vw,4.5rem)] leading-[1.05] tracking-tight ${titleTone}`}
+  >
+    {title}
+  </h2>
+  {lede && (
+    <p class={`reveal mt-6 max-w-2xl text-balance text-base leading-relaxed md:text-lg ${ledeTone} ${align === 'center' ? 'mx-auto' : ''}`}>
+      {lede}
+    </p>
+  )}
+</header>

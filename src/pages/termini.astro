@@ -1,0 +1,104 @@
+---
+import Layout from '@layouts/Layout.astro';
+import PageHero from '@components/PageHero.astro';
+import Prose from '@components/Prose.astro';
+
+const lastUpdated = 'Ultimo aggiornamento: 27 aprile 2026';
+---
+
+<Layout
+  title="Termini & Condizioni — Synapsis FW"
+  description="Termini e condizioni di utilizzo del sito synapsisfw.it."
+>
+  <PageHero
+    eyebrow="Termini di utilizzo"
+    title="Termini & Condizioni"
+    lede="I presenti Termini disciplinano l'accesso e l'utilizzo del sito synapsisfw.it. Navigando il sito l'utente accetta integralmente quanto qui riportato."
+    lastUpdated={lastUpdated}
+  />
+
+  <section class="bg-brand-paper pb-section md:pb-32">
+    <div class="container-page">
+      <Prose>
+        <div class="callout">
+          <strong>Documento template.</strong> Il presente testo va revisionato da un consulente legale prima della pubblicazione. I campi <span class="placeholder">[parentesi]</span> vanno compilati con i dati reali della società.
+        </div>
+
+        <h2>1. Oggetto e ambito</h2>
+        <p>
+          Il sito <a href="https://synapsisfw.it">synapsisfw.it</a> (di seguito "Sito") è di proprietà di <span class="placeholder">[INSERIRE RAGIONE SOCIALE]</span>, con sede legale in <span class="placeholder">[INSERIRE INDIRIZZO]</span>, P.IVA <span class="placeholder">[INSERIRE P.IVA]</span> (di seguito "Synapsis FW" o "Titolare").
+        </p>
+        <p>
+          I presenti Termini disciplinano l'accesso, la consultazione e l'utilizzo del Sito da parte degli utenti. L'utilizzo del Sito comporta l'accettazione integrale dei presenti Termini.
+        </p>
+
+        <h2>2. Proprietà intellettuale</h2>
+        <p>
+          Tutti i contenuti del Sito — inclusi a titolo esemplificativo testi, grafica, loghi, marchi, immagini, video, codice, font e relativa selezione, organizzazione e disposizione — sono di proprietà di Synapsis FW o dei rispettivi licenzianti e sono tutelati dalla normativa nazionale e internazionale in materia di diritto d'autore, marchi e proprietà industriale.
+        </p>
+        <p>
+          È vietata la riproduzione, modifica, distribuzione, pubblicazione o utilizzo, integrale o parziale, dei contenuti del Sito senza il preventivo consenso scritto del Titolare, fatta salva la facoltà di consultazione personale e non commerciale.
+        </p>
+
+        <h2>3. Uso del Sito</h2>
+        <p>L'utente si impegna a utilizzare il Sito nel rispetto della legge, dell'ordine pubblico e del buon costume. È vietato:</p>
+        <ul>
+          <li>utilizzare il Sito per finalità illecite o contrarie ai presenti Termini;</li>
+          <li>compiere attività che possano compromettere la sicurezza, la disponibilità o l'integrità del Sito;</li>
+          <li>utilizzare bot, scraper o altri strumenti automatizzati senza autorizzazione;</li>
+          <li>tentare di accedere ad aree riservate del Sito o ai sistemi informatici del Titolare.</li>
+        </ul>
+
+        <h2>4. Contenuti informativi</h2>
+        <p>
+          I contenuti del Sito hanno finalità informativa e non costituiscono offerta al pubblico, né impegno contrattuale del Titolare. Tutti i progetti, i preventivi e le condizioni economiche relative al modello <strong>Fee Waiver</strong> sono soggetti a definizione caso per caso e a sottoscrizione di apposito contratto.
+        </p>
+        <p>
+          Synapsis FW si riserva il diritto di modificare in qualsiasi momento, e senza preavviso, i contenuti, la struttura e le funzionalità del Sito.
+        </p>
+
+        <h2>5. Limitazione di responsabilità</h2>
+        <p>
+          Il Titolare si impegna a garantire la qualità e l'accuratezza dei contenuti del Sito. Tuttavia, non assume alcuna responsabilità per:
+        </p>
+        <ul>
+          <li>eventuali interruzioni, malfunzionamenti o errori tecnici del Sito;</li>
+          <li>imprecisioni o errori nei contenuti, salvo dolo o colpa grave;</li>
+          <li>danni derivanti dall'utilizzo o dall'impossibilità di utilizzo del Sito;</li>
+          <li>contenuti di siti di terze parti raggiungibili tramite link presenti sul Sito.</li>
+        </ul>
+
+        <h2>6. Link a siti di terze parti</h2>
+        <p>
+          Il Sito può contenere link a siti web di terze parti. Il Titolare non controlla né è responsabile dei contenuti, delle politiche e delle pratiche di tali siti. La presenza di un link non implica alcuna approvazione o garanzia da parte del Titolare.
+        </p>
+
+        <h2>7. Trattamento dei dati personali</h2>
+        <p>
+          Per quanto riguarda il trattamento dei dati personali raccolti tramite il Sito, si rinvia integralmente alla <a href="/privacy">Privacy Policy</a> e alla <a href="/cookie-policy">Cookie Policy</a>.
+        </p>
+
+        <h2>8. Modifiche ai Termini</h2>
+        <p>
+          Synapsis FW si riserva il diritto di modificare in qualsiasi momento i presenti Termini. Le modifiche saranno efficaci dalla pubblicazione sul Sito. L'utilizzo continuato del Sito dopo la pubblicazione costituisce accettazione delle modifiche.
+        </p>
+
+        <h2>9. Legge applicabile e foro competente</h2>
+        <p>
+          I presenti Termini sono regolati dalla legge italiana. Per ogni controversia derivante dall'interpretazione, esecuzione o cessazione dei presenti Termini sarà competente, in via esclusiva, il Foro di <span class="placeholder">[INSERIRE FORO COMPETENTE — es. Milano]</span>, salva l'applicazione di norme imperative diverse a tutela del consumatore.
+        </p>
+
+        <h2>10. Contatti</h2>
+        <p>
+          Per qualsiasi richiesta o chiarimento sui presenti Termini, contattare:
+          <br /><a href="mailto:info@synapsisfw.it">info@synapsisfw.it</a>
+        </p>
+
+        <hr />
+        <p style="font-size: 0.85rem; opacity: 0.6;">
+          {lastUpdated}
+        </p>
+      </Prose>
+    </div>
+  </section>
+</Layout>

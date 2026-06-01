@@ -1,0 +1,125 @@
+---
+import '@/styles/global.css';
+import { getLangFromUrl, useTranslations, localizedPath } from '@i18n/utils';
+
+interface Props {
+  title?: string;
+  description?: string;
+  active?: 'home' | 'calcolatore' | string;
+}
+
+const { title, description, active = 'home' } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const labels = lang === 'it'
+  ? {
+      brand: 'Area Riservata',
+      home: 'Home',
+      calc: 'Calcolatore',
+      logout: 'Esci',
+      backToSite: 'Torna al sito',
+    }
+  : {
+      brand: 'Private Area',
+      home: 'Home',
+      calc: 'Calculator',
+      logout: 'Log out',
+      backToSite: 'Back to site',
+    };
+
+const homeArea = lang === 'it' ? '/area-riservata/' : '/en/private-area/';
+const calcArea = lang === 'it' ? '/area-riservata/calcolatore/' : '/en/private-area/calculator/';
+
+const pageTitle = title ?? `${labels.brand} — Synapsis FW`;
+const pageDescription = description ?? '';
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f7efe1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap"
+    />
+
+    <title>{pageTitle}</title>
+    {pageDescription && <meta name="description" content={pageDescription} />}
+  </head>
+  <body class="bg-brand-cream">
+    <!-- App header (dedicato, no marketing) -->
+    <header class="sticky top-0 z-40 border-b border-brand-ink/10 bg-brand-paper/95 backdrop-blur-md">
+      <div class="container-page flex items-center justify-between py-4">
+        <div class="flex items-center gap-6">
+          <a href={homeArea} class="flex items-center gap-3" aria-label={labels.brand}>
+            <img src="/favicon.svg" alt="" width="32" height="32" class="h-8 w-8" />
+            <span class="font-display text-lg tracking-tight">{labels.brand}</span>
+          </a>
+          <nav class="hidden items-center gap-1 md:flex" aria-label="Sezioni area riservata">
+            <a
+              href={homeArea}
+              class={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                active === 'home'
+                  ? 'bg-brand-ink text-white'
+                  : 'text-brand-ink/70 hover:bg-brand-ink/5 hover:text-brand-ink'
+              }`}
+            >
+              {labels.home}
+            </a>
+            <a
+              href={calcArea}
+              class={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+                active === 'calcolatore'
+                  ? 'bg-brand-ink text-white'
+                  : 'text-brand-ink/70 hover:bg-brand-ink/5 hover:text-brand-ink'
+              }`}
+            >
+              {labels.calc}
+            </a>
+          </nav>
+        </div>
+        <div class="flex items-center gap-2">
+          <a
+            href={lang === 'it' ? '/' : '/en/'}
+            class="hidden rounded-full px-4 py-2 text-sm text-brand-ink/60 hover:text-brand-ink md:inline-block"
+          >
+            ← {labels.backToSite}
+          </a>
+          <a
+            href="/area-riservata/?logout=1"
+            class="rounded-full border border-brand-ink/20 px-4 py-2 text-sm font-medium text-brand-ink/80 hover:border-brand-ink/40"
+            data-logout
+          >
+            {labels.logout}
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container-page py-10 md:py-16">
+      <slot />
+    </main>
+
+    <script>
+      // Logout HTTP Basic Auth (workaround browser): manda credenziali fake per invalidare la cache
+      const logoutLink = document.querySelector<HTMLAnchorElement>('[data-logout]');
+      logoutLink?.addEventListener('click', (e) => {
+        e.preventDefault();
+        // Invalida la sessione Basic Auth richiedendo con credenziali errate
+        fetch(window.location.origin + window.location.pathname, {
+          headers: { Authorization: 'Basic ' + btoa('logout:logout') },
+        }).finally(() => {
+          window.location.href = '/';
+        });
+      });
+    </script>
+  </body>
+</html>

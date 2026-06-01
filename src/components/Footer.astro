@@ -1,0 +1,82 @@
+---
+import { getLangFromUrl, useTranslations } from '@i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const year = new Date().getFullYear();
+
+const legalPaths =
+  lang === 'it'
+    ? { privacy: '/privacy', cookies: '/cookie-policy', terms: '/termini' }
+    : { privacy: '/en/privacy', cookies: '/en/cookie-policy', terms: '/en/terms' };
+---
+
+<footer
+  class="border-t border-brand-ink/10 bg-brand-ink text-brand-paper"
+  style="padding-bottom: env(safe-area-inset-bottom);"
+>
+  <div class="container-page py-16 md:py-24">
+    <div class="grid gap-12 md:grid-cols-12">
+      <div class="md:col-span-5">
+        <a href="/" class="flex items-center gap-3">
+          <img src="/favicon.svg" alt="" width="40" height="40" class="h-10 w-10" />
+          <span class="font-display text-2xl tracking-tight">Synapsis FW</span>
+        </a>
+        <p class="mt-6 max-w-md text-balance font-display text-3xl leading-tight md:text-4xl">
+          {t('footer.tagline')}
+        </p>
+      </div>
+
+      <div class="md:col-span-3">
+        <h3 class="text-xs font-medium uppercase tracking-[0.18em] text-brand-paper/50">
+          {lang === 'it' ? 'Contatti' : 'Contact'}
+        </h3>
+        <ul class="mt-4 space-y-2 text-sm text-brand-paper/80">
+          <li>
+            <a href="mailto:info@synapsisfw.it" class="hover:text-brand-orange">info@synapsisfw.it</a>
+          </li>
+          <li>
+            <a href="tel:+393403542476" class="hover:text-brand-orange">+39 340 3542476</a>
+          </li>
+          <li class="pt-2 text-brand-paper/60">Napoli, Italia</li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-2">
+        <h3 class="text-xs font-medium uppercase tracking-[0.18em] text-brand-paper/50">
+          {lang === 'it' ? 'Legale' : 'Legal'}
+        </h3>
+        <ul class="mt-4 space-y-2 text-sm text-brand-paper/80">
+          <li><a href={legalPaths.privacy} class="hover:text-brand-orange">{t('footer.privacy')}</a></li>
+          <li><a href={legalPaths.cookies} class="hover:text-brand-orange">{t('footer.cookies')}</a></li>
+          <li><a href={legalPaths.terms} class="hover:text-brand-orange">{t('footer.terms')}</a></li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-2">
+        <h3 class="text-xs font-medium uppercase tracking-[0.18em] text-brand-paper/50">
+          {lang === 'it' ? 'Riservato' : 'Reserved'}
+        </h3>
+        <ul class="mt-4 space-y-2 text-sm text-brand-paper/80">
+          <li>
+            <a
+              href={lang === 'it' ? '/area-riservata/' : '/en/private-area/'}
+              class="inline-flex items-center gap-2 hover:text-brand-orange"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="4" y="11" width="16" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M8 11V8a4 4 0 018 0v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+              {lang === 'it' ? 'Area riservata' : 'Private area'}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-16 flex flex-col gap-4 border-t border-brand-paper/10 pt-8 text-xs text-brand-paper/50 md:flex-row md:items-center md:justify-between">
+      <p>© {year} Synapsis FW. {t('footer.rights')}</p>
+      <p>P.IVA 00000000000</p>
+    </div>
+  </div>
+</footer>

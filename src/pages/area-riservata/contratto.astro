@@ -1,0 +1,617 @@
+---
+import AppLayout from '@layouts/AppLayout.astro';
+---
+
+<AppLayout
+  title="Contratto generato — Area Riservata · Synapsis FW"
+  description="Contratto di prestazione servizi tecnici pre-compilato."
+  active="calcolatore"
+>
+  <!-- Toolbar (nascosta in stampa) -->
+  <div class="ctr-toolbar no-print">
+    <a href="/area-riservata/calcolatore/" class="btn">← Torna al calcolatore</a>
+    <div style="flex:1;"></div>
+    <button type="button" class="btn" id="btn-export-word">Esporta in Word</button>
+    <button type="button" class="btn p" id="btn-print">Stampa / Salva PDF</button>
+  </div>
+
+  <!-- Contenuto contratto -->
+  <article class="ctr" id="ctr-content">
+    <header class="ctr-cover">
+      <div class="ctr-brand">SFW · Synapsis FW S.r.l.</div>
+      <h1 class="ctr-title">CONTRATTO DI PRESTAZIONE<br/>DI SERVIZI TECNICI</h1>
+      <p class="ctr-sub">Progettazione Integrata di Impianti Tecnologici<br/>con attivazione del programma <strong>FEE WAIVER</strong></p>
+    </header>
+
+    <!-- Scheda Progetto -->
+    <section class="ctr-section">
+      <h2>SCHEDA PROGETTO</h2>
+      <table class="ctr-table">
+        <tbody>
+          <tr><td class="lbl">Denominazione del Progetto</td><td data-f="proj_name"></td></tr>
+          <tr><td class="lbl">Tipologia edificio</td><td data-f="proj_type"></td></tr>
+          <tr><td class="lbl">Indirizzo cantiere / progetto</td><td data-f="proj_address"></td></tr>
+          <tr><td class="lbl">Superficie (mq stimata)</td><td><span data-f="proj_surface"></span> mq</td></tr>
+          <tr><td class="lbl">Fase di progettazione</td><td data-f="proj_phase"></td></tr>
+          <tr><td class="lbl">Discipline impiantistiche incluse</td><td data-f="proj_disciplines"></td></tr>
+          <tr><td class="lbl">Servizi opzionali aggiuntivi</td><td data-f="proj_services"></td></tr>
+          <tr><td class="lbl">Corrispettivo di progettazione lordo</td><td>€ <span data-f="fee_amount"></span> + IVA al <span data-f="fee_vat"></span> %</td></tr>
+          <tr><td class="lbl">Servizi opzionali — corrispettivo</td><td data-f="services_fee"></td></tr>
+          <tr><td class="lbl">Scenario Fee Waiver atteso</td><td data-f="fw_scenario"></td></tr>
+          <tr><td class="lbl">Bonus aggiuntivo Scenario 1</td><td><span data-f="bonus_pct"></span>% sul valore netto fornitura — definito a consuntivo</td></tr>
+          <tr><td class="lbl">Cashback futuro Scenario 3</td><td>€ <span data-f="cashback_amount"></span> — applicabile al prossimo incarico</td></tr>
+          <tr><td class="lbl">Termine consegna elaborati</td><td><span data-f="delivery_days"></span> giorni lavorativi dalla firma</td></tr>
+          <tr><td class="lbl">Cronoprogramma cantiere</td><td data-f="cronoprogramma"></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Parti contraenti -->
+    <section class="ctr-section">
+      <h2>PARTI CONTRAENTI</h2>
+      <div class="ctr-parties">
+        <div class="ctr-party">
+          <div class="ctr-party-tag">PROFESSIONISTA</div>
+          <div class="ctr-party-name">Synapsis FW S.r.l.</div>
+          <div class="ctr-party-sub">Design &amp; Supply</div>
+          <dl class="ctr-dl">
+            <dt>Sede:</dt><dd data-f="sfw_seat"></dd>
+            <dt>P.IVA:</dt><dd data-f="sfw_vat"></dd>
+            <dt>Legale Rapp.te:</dt><dd data-f="sfw_legal"></dd>
+            <dt>PEC:</dt><dd>info@synapsisfw.it</dd>
+            <dt>Tel:</dt><dd>+39 340 3542476</dd>
+          </dl>
+        </div>
+        <div class="ctr-party">
+          <div class="ctr-party-tag">CLIENTE</div>
+          <div class="ctr-party-name" data-f="client_name"></div>
+          <dl class="ctr-dl">
+            <dt>Forma giuridica:</dt><dd data-f="client_form"></dd>
+            <dt>Sede legale:</dt><dd data-f="client_seat"></dd>
+            <dt>P.IVA / C.F.:</dt><dd data-f="client_vat"></dd>
+            <dt>Legale Rapp.te:</dt><dd data-f="client_legal"></dd>
+            <dt>PEC:</dt><dd data-f="client_pec"></dd>
+            <dt>Tel:</dt><dd data-f="client_phone"></dd>
+          </dl>
+        </div>
+      </div>
+      <p class="ctr-meta">Data di stipula: <span data-f="sign_date"></span> &nbsp;&nbsp; Luogo: <span data-f="sign_place"></span></p>
+    </section>
+
+    <!-- Premesse -->
+    <section class="ctr-section">
+      <h2>PREMESSE</h2>
+      <p>Il presente Accordo di Incarico Professionale (d'ora in avanti "Accordo" o "Incarico") è stipulato tra le Parti come sopra identificate, sulla base delle seguenti premesse:</p>
+      <p><strong>(A)</strong> Synapsis FW S.r.l. (di seguito "SFW") è una società di Design &amp; Supply che opera nel settore edilizio e impiantistico, erogando servizi tecnici integrati di progettazione e fornitura/distribuzione di sistemi tecnologici attraverso un proprio network selezionato di professionisti e aziende partner. SFW opera come soggetto unico contraente verso i propri clienti, garantendo la copertura completa di sette discipline impiantistiche — elettrico, HVAC, illuminazione, sicurezza, smart building/BMS, energia e infrastrutture — e avvalendosi per l'esecuzione tecnica di specialisti selezionati sulla base del principio del miglior servizio e della massima professionalità disponibile per ciascuna disciplina ("Network SFW");</p>
+      <p><strong>(B)</strong> SFW opera secondo il modello proprietario "Fee Waiver" (FW), che consente al Cliente di azzerare totalmente il corrispettivo di progettazione tecnica indicato nel presente Contratto, al verificarsi delle condizioni descritte all'Art. 4. La presenza del Fee Waiver non riduce in alcun modo la qualità, la completezza né il livello professionale dei servizi erogati da SFW;</p>
+      <p><strong>(C)</strong> Il Cliente è un soggetto operante nel settore immobiliare, edilizio o della progettazione — nella forma di general contractor, impresa edile, developer immobiliare, studio di architettura o di ingegneria — avente interesse ad avvalersi dei servizi integrati di progettazione impiantistica di SFW per il Progetto descritto nella Scheda Progetto in copertina (d'ora in avanti "il Progetto");</p>
+      <p><strong>(D)</strong> Le Parti intendono formalizzare i termini e le condizioni del presente Incarico professionale, comprendente la descrizione dei servizi, il corrispettivo, il meccanismo Fee Waiver e i relativi obblighi reciproci.</p>
+    </section>
+
+    <!-- Articoli -->
+    <section class="ctr-section">
+      <h3>Art. 1 — Oggetto del Contratto</h3>
+      <p>1.1 Con il presente Contratto di Prestazione di Servizi Tecnici (d'ora in avanti "Contratto") il Cliente affida a SFW, che accetta, l'esecuzione dei servizi tecnici integrati di progettazione degli impianti tecnologici del Progetto, nelle discipline indicate nella Scheda Progetto in copertina.</p>
+      <p>1.2 Il presente Contratto ha ad oggetto esclusivamente la prestazione di servizi tecnici di progettazione e specifica impiantistica, unitamente all'attivazione del meccanismo Fee Waiver di cui all'Art. 4. La fornitura dei materiali e l'installazione degli impianti non sono oggetto del presente Contratto e saranno disciplinate, ove richiesto, da separati ordini di acquisto o contratti di fornitura.</p>
+      <p>1.3 Il presente Contratto ha ad oggetto il singolo Progetto identificato nella Scheda Progetto. Esso non costituisce un contratto quadro né impegna le Parti per Progetti futuri.</p>
+      <p>1.4 <strong>Modello di esecuzione tramite Network SFW.</strong> SFW esegue i servizi tecnici oggetto del presente Contratto avvalendosi, in tutto o in parte, di professionisti, studi tecnici e specialisti selezionati appartenenti al proprio network ("Network SFW"). Il ricorso al Network SFW avviene sulla base del principio del miglior servizio disponibile e della massima professionalità tecnica per la specifica disciplina e tipologia di Progetto, garantendo al Cliente la qualità di esecuzione più elevata in ciascun ambito disciplinare.</p>
+      <p>Il ricorso al Network SFW non riduce né trasferisce in alcun modo le obbligazioni di SFW verso il Cliente. SFW rimane in ogni caso l'unico contraente e responsabile verso il Cliente per l'integrale esecuzione del Contratto, e risponde direttamente dei risultati prodotti dai soggetti del Network SFW come se li avesse eseguiti in proprio. In particolare, SFW si obbliga a:</p>
+      <ul>
+        <li><strong>Coordinamento generale del Progetto</strong> — SFW svolge la funzione di regia unica e punto di integrazione tra tutte le discipline impiantistiche, garantendo la coerenza tecnica dell'intero sistema e l'armonizzazione degli elaborati prodotti dai diversi specialisti del Network;</li>
+        <li><strong>Front-end tecnico verso il Cliente</strong> — SFW è l'unico interlocutore tecnico del Cliente per tutte le questioni relative ai servizi oggetto del Contratto; nessun soggetto del Network SFW intrattiene rapporti diretti con il Cliente senza il preventivo coordinamento di SFW;</li>
+        <li><strong>Front-end commerciale e gestione del Fee Waiver</strong> — SFW gestisce in proprio l'intero meccanismo Fee Waiver, la verifica di conformità dei brand, la comunicazione degli scenari applicabili e l'emissione di tutta la documentazione economica verso il Cliente;</li>
+        <li><strong>Supervisione qualitativa degli elaborati</strong> — SFW verifica e valida tutti gli elaborati tecnici prodotti dai soggetti del Network SFW prima della loro consegna al Cliente, garantendone la conformità agli standard qualitativi e normativi applicabili;</li>
+        <li><strong>Responsabilità sui tempi di consegna</strong> — SFW è responsabile del rispetto dei termini di consegna degli elaborati indicati nella Scheda Progetto, indipendentemente dall'organizzazione interna del Network;</li>
+        <li><strong>Riservatezza estesa al Network</strong> — SFW si impegna a vincolare tutti i soggetti del Network SFW coinvolti nel Progetto ad obblighi di riservatezza almeno equivalenti a quelli del presente Contratto, rispondendo in via solidale di eventuali violazioni;</li>
+        <li><strong>Aggiornamento e continuità del servizio</strong> — in caso di sostituzione di uno o più soggetti del Network SFW nel corso del Progetto, SFW garantisce la continuità operativa e il trasferimento senza discontinuità di tutte le attività in corso, senza oneri aggiuntivi per il Cliente.</li>
+      </ul>
+      <p>Il Cliente prende atto e accetta il modello di esecuzione tramite Network SFW, riconoscendo che tale struttura costituisce il presupposto organizzativo che consente a SFW di garantire la copertura multidisciplinare integrata oggetto del presente Contratto.</p>
+    </section>
+
+    <section class="ctr-section">
+      <h3>Art. 2 — Descrizione dei Servizi</h3>
+      <p><strong>2.1 Servizi inclusi nell'Incarico.</strong> In funzione delle discipline spuntate nella Scheda Progetto, SFW si impegna a erogare i seguenti servizi:</p>
+      <ul>
+        <li>Analisi delle esigenze del Cliente e del contesto normativo applicabile al Progetto;</li>
+        <li>Progettazione tecnica integrata delle discipline impiantistiche incluse nell'Incarico, con produzione degli elaborati necessari alla fase di progettazione indicata nella Scheda Progetto (relazioni tecniche, schemi, planimetrie impiantistiche, capitolati tecnici, computi metrici estimativi);</li>
+        <li>Specifica tecnica dei prodotti e dei brand nei capitolati, attingendo esclusivamente alla rete SFW Certified Partners per garantire qualità, efficienza energetica e conformità normativa;</li>
+        <li>Coordinamento tra le diverse discipline impiantistiche per assicurare la coerenza e la compatibilità dell'intero sistema tecnologico dell'edificio;</li>
+        <li>Supporto al Cliente nelle fasi di assegnazione delle forniture e di subappalto, ove richiesto;</li>
+        <li>Verifica di conformità dei brand utilizzati in fase di fornitura ai fini dell'applicazione del Fee Waiver, secondo quanto previsto all'Art. 4.</li>
+      </ul>
+      <p><strong>2.2 Servizi non inclusi — su richiesta separata.</strong> Non sono inclusi nel presente Incarico, salvo specifica pattuizione scritta aggiuntiva: la direzione lavori impiantistica; il coordinamento della sicurezza in fase di progettazione ed esecuzione; le attività di collaudo e messa in servizio degli impianti; l'assistenza alla gara d'appalto oltre alla produzione del capitolato; le varianti progettuali successive alla consegna degli elaborati definitivi. Eventuali servizi opzionali pattuiti tra le Parti sono indicati nella Scheda Progetto e quotati separatamente nel presente Contratto.</p>
+      <p><strong>2.3 Processo operativo.</strong> Il percorso di collaborazione si articola nelle seguenti 4 fasi:</p>
+      <ul>
+        <li><strong>Fase 1 — Briefing e analisi</strong>: SFW conduce un incontro di analisi delle esigenze, verifica la documentazione disponibile e conferma le discipline da sviluppare;</li>
+        <li><strong>Fase 2 — Progettazione integrata</strong>: sviluppo degli elaborati tecnici per tutte le discipline incluse nell'Incarico, con armonizzazione multidisciplinare sin dalle prime fasi;</li>
+        <li><strong>Fase 3 — Consegna elaborati e attivazione Fee Waiver</strong>: consegna degli elaborati al Cliente e avvio della procedura di verifica per l'applicazione del Fee Waiver;</li>
+        <li><strong>Fase 4 — Chiusura e verifica finale</strong>: a conclusione della fase di fornitura, SFW determina lo scenario Fee Waiver applicabile e comunica per iscritto l'esito al Cliente.</li>
+      </ul>
+    </section>
+
+    <section class="ctr-section">
+      <h3>Art. 3 — Corrispettivo di Progettazione</h3>
+      <p>3.1 Il corrispettivo per i servizi tecnici di progettazione integrata di cui al presente Contratto è pari a:</p>
+      <p class="ctr-fee">Corrispettivo lordo di progettazione: <strong>€ <span data-f="fee_amount"></span></strong> (oltre IVA al <span data-f="fee_vat"></span> %)</p>
+      <p class="ctr-note">Importo di riferimento. L'effettivo importo dovuto dal Cliente è determinato dal caso applicabile di cui ai commi 3.2, 3.3 e 3.4.</p>
+
+      <p><strong>Caso A — Fee Waiver attivato con fornitura a carico di SFW.</strong></p>
+      <p>3.2 Quando le forniture degli impianti tecnologici del Progetto vengono effettuate direttamente da SFW (Scenario 1 di cui all'Art. 4), il corrispettivo di progettazione è integralmente azzerato: nessuna somma è dovuta dal Cliente per i servizi tecnici oggetto del presente Contratto. SFW emette documento a zero a conferma dell'azzeramento. In aggiunta, SFW riconosce al Cliente il bonus percentuale indicato nella Scheda Progetto, applicato sul valore netto della fornitura in fase di fatturazione della stessa.</p>
+
+      <p><strong>Caso B — Fee Waiver attivato con fornitura a terzi — brand conformi.</strong></p>
+      <p>3.3 Quando le forniture vengono affidate dal Cliente a soggetti terzi e i prodotti utilizzati risultano conformi ai brand specificati da SFW nei capitolati (Scenario 2 di cui all'Art. 4), il corrispettivo di progettazione è integralmente azzerato: nessuna somma è dovuta dal Cliente. SFW emette documento a zero a conferma dell'azzeramento, previa verifica di conformità dei brand secondo la procedura di cui all'Art. 4.5.</p>
+
+      <p><strong>Caso C — Fee Waiver non attivato.</strong></p>
+      <p>3.4 Quando le forniture vengono affidate a terzi con brand non conformi a quelli specificati da SFW (Scenario 3 di cui all'Art. 4), il corrispettivo di progettazione indicato al comma 3.1 rimane integralmente dovuto dal Cliente. SFW emette fattura alla chiusura della verifica di cui all'Art. 4.5, con pagamento entro 30 (trenta) giorni dalla data di emissione. In caso di ritardo si applicano gli interessi moratori ai sensi del D.Lgs. 231/2002. SFW riconosce altresì al Cliente il cashback su futura progettazione indicato nella Scheda Progetto.</p>
+
+      <p>3.5 Il corrispettivo di cui al comma 3.1 è comprensivo di tutte le spese necessarie all'esecuzione dei servizi tecnici, salvo rimborsi spese di trasferta espressamente concordati per iscritto. Eventuali varianti progettuali richieste dal Cliente dopo la consegna degli elaborati definitivi, che comportino un sostanziale rifacimento di uno o più elaborati, sono soggette a separata pattuizione economica.</p>
+
+      <p><strong>3.6 Servizi opzionali aggiuntivi.</strong> I servizi opzionali eventualmente selezionati dal Cliente e indicati nella Scheda Progetto sono fatturati separatamente, indipendentemente dall'attivazione del Fee Waiver, secondo le quotazioni ivi riportate. Il pagamento dei servizi opzionali avviene a fronte di emissione di apposita fattura, con termine di pagamento di 30 (trenta) giorni dalla data di emissione.</p>
+    </section>
+
+    <section class="ctr-section">
+      <h3>Art. 4 — Meccanismo Fee Waiver</h3>
+      <p>4.1 Il Fee Waiver è il meccanismo proprietario di SFW che consente di azzerare il corrispettivo di progettazione indicato all'Art. 3.1, in funzione delle scelte operate dal Cliente (o dal general contractor da questi incaricato) in fase di fornitura degli impianti tecnologici del Progetto. La presenza del Fee Waiver non riduce in alcun modo la qualità, la completezza né il livello professionale dei servizi erogati da SFW.</p>
+      <p>4.2 Ai fini dell'applicazione del Fee Waiver, i prodotti e i brand specificati da SFW nei capitolati tecnici del Progetto costituiscono i "brand conformi". L'elenco dei brand conformi per disciplina è allegato al presente Accordo come Allegato A ovvero comunicato a SFW al momento della consegna degli elaborati.</p>
+      <p>4.3 Il meccanismo Fee Waiver si articola nei seguenti tre scenari, il cui esito determina l'applicazione o meno dell'azzeramento del corrispettivo:</p>
+      <p><strong>Scenario 1 — Supply affidato a Synapsis FW — Fee Waiver Pieno + Bonus.</strong> Quando le forniture degli impianti tecnologici del Progetto vengono effettuate direttamente da SFW tramite i propri SFW Certified Partners, si producono i seguenti effetti: (a) il corrispettivo di progettazione di cui all'Art. 3.1 viene integralmente azzerato — nessuna parcella è dovuta dal Cliente; (b) SFW riconosce al Cliente un bonus percentuale aggiuntivo sul valore netto della fornitura, nella misura indicata nella Scheda Progetto in copertina, da applicarsi in fase di fatturazione della fornitura stessa. Questo scenario garantisce il massimo vantaggio economico per il Cliente e la massima coerenza tra fase progettuale e realizzazione.</p>
+      <p><strong>Scenario 2 — Supply affidato a terzi con brand conformi — Fee Waiver Pieno.</strong> Qualora le forniture vengano affidate dal Cliente a soggetti terzi (imprese installatrici, general contractor, distributori), ma i prodotti e i brand effettivamente utilizzati siano conformi a quelli specificati da SFW nei capitolati tecnici (brand conformi), viene comunque riconosciuto il Fee Waiver pieno: il corrispettivo di progettazione di cui all'Art. 3.1 viene integralmente azzerato. Il Cliente mantiene la piena libertà di scelta del proprio fornitore senza rinunciare al vantaggio economico del Fee Waiver. La conformità dei brand è verificata da SFW secondo la procedura di cui all'Art. 4.5.</p>
+      <p><strong>Scenario 3 — Supply affidato a terzi con brand non conformi — Parcella Intera + Cashback Futuro.</strong> Unico scenario in cui il Fee Waiver non trova applicazione: qualora le forniture vengano affidate a soggetti terzi che utilizzano prodotti e brand diversi da quelli specificati nei capitolati di SFW, il corrispettivo di progettazione indicato all'Art. 3.1 rimane integralmente dovuto dal Cliente e viene fatturato secondo le modalità di cui all'Art. 3.4. Tuttavia, anche in questo scenario SFW riconosce al Cliente un cashback da applicare su un futuro incarico professionale, nella misura indicata nella Scheda Progetto in copertina, quale riconoscimento della relazione commerciale instaurata.</p>
+      <p>4.4 Non costituisce Scenario 3 l'utilizzo di prodotti sostitutivi nei seguenti casi: (i) comprovata indisponibilità di mercato dei brand conformi specificati da SFW, purché SFW abbia preventivamente autorizzato per iscritto il prodotto sostitutivo riconoscendone l'equivalenza tecnica; ovvero (ii) SFW non sia in grado di proporre, tra i propri brand partner, alternative tecniche equivalenti per le specifiche esigenze del Progetto — circostanza che SFW è tenuta a comunicare per iscritto al Cliente contestualmente alla consegna degli elaborati o non appena ne venga a conoscenza. In entrambi i casi, il prodotto sostitutivo autorizzato è equiparato a brand conforme ai fini dell'applicazione del Fee Waiver.</p>
+      <p>4.5 La procedura di verifica per l'applicazione del Fee Waiver si articola diversamente in funzione dello scenario:</p>
+      <ul>
+        <li><strong>Scenari 1 e 2</strong> — Il Cliente comunica per iscritto a SFW l'avvenuta fornitura e posa degli impianti tecnologici del Progetto. SFW provvede autonomamente alla verifica di conformità attraverso i propri brand partner e i propri canali interni, senza richiedere al Cliente ulteriore documentazione. Entro 10 (dieci) giorni lavorativi dalla ricezione della comunicazione di avvenuta fornitura, SFW emette il documento di azzeramento del corrispettivo e, per lo Scenario 1, notifica il bonus maturato.</li>
+        <li><strong>Scenario 3</strong> — Il Cliente comunica per iscritto a SFW che la fornitura degli impianti è stata affidata a soggetti terzi con brand e prodotti diversi da quelli specificati nei capitolati di SFW. SFW, ricevuta tale comunicazione, emette entro 10 (dieci) giorni lavorativi la relativa fattura del corrispettivo di progettazione e notifica al Cliente il cashback maturato da applicare al prossimo incarico.</li>
+      </ul>
+      <p>4.6 In caso di fornitura parziale — ossia qualora solo alcune delle discipline impiantistiche incluse nell'Incarico vengano fornite tramite brand conformi o da SFW — il Fee Waiver si applica in proporzione al valore della progettazione attribuibile alle discipline effettivamente conformi, secondo quanto specificato nella Scheda Progetto o in apposita comunicazione scritta di SFW.</p>
+    </section>
+
+    <section class="ctr-section">
+      <h3>Art. 5 — Obblighi di SFW</h3>
+      <p>Nell'ambito del presente Incarico, SFW si impegna a:</p>
+      <ul>
+        <li><strong>(a)</strong> erogare i servizi di progettazione con la diligenza del professionista qualificato, nel rispetto delle normative tecniche vigenti (CEI, UNI, norme di settore applicabili) e delle specifiche concordate con il Cliente;</li>
+        <li><strong>(b)</strong> consegnare gli elaborati tecnici entro il termine indicato nella Scheda Progetto, salvo ritardi imputabili a mancata o tardiva fornitura di documentazione da parte del Cliente;</li>
+        <li><strong>(c)</strong> specificare nei capitolati esclusivamente prodotti e brand appartenenti alla rete SFW Certified Partners, con caratteristiche tecniche adeguate alle esigenze del Progetto e conformi alle normative applicabili;</li>
+        <li><strong>(d)</strong> eseguire la verifica di conformità dei brand entro i termini di cui all'Art. 4.5 e comunicarne l'esito con obiettività e documentazione scritta;</li>
+        <li><strong>(e)</strong> mantenere riservate tutte le informazioni relative al Progetto, non divulgandole a terzi salvo il necessario coinvolgimento dei brand partner per le attività di specifica tecnica, previa accettazione di obblighi di riservatezza equivalenti;</li>
+        <li><strong>(f)</strong> designare un referente dedicato (Account Manager SFW) per la gestione operativa dell'Incarico.</li>
+      </ul>
+    </section>
+
+    <section class="ctr-section">
+      <h3>Art. 6 — Obblighi del Cliente</h3>
+      <p>Nell'ambito del presente Incarico, il Cliente si impegna a:</p>
+      <ul>
+        <li><strong>(a)</strong> fornire a SFW, entro 5 (cinque) giorni lavorativi dalla sottoscrizione del presente Accordo, tutta la documentazione tecnica necessaria all'esecuzione dell'Incarico (planimetrie aggiornate, elaborati architettonici, normative edilizie applicabili, eventuale progetto preliminare disponibile);</li>
+        <li><strong>(b)</strong> comunicare tempestivamente a SFW qualsiasi variante progettuale o cambio di programma che possa incidere sulle discipline impiantistiche oggetto dell'Incarico;</li>
+        <li><strong>(c)</strong> trasmettere a SFW, entro 15 (quindici) giorni dalla conclusione della fase di fornitura del Progetto, la documentazione attestante i brand e i prodotti effettivamente installati, necessaria alla procedura di verifica Fee Waiver di cui all'Art. 4.5;</li>
+        <li><strong>(d)</strong> non utilizzare gli elaborati tecnici prodotti da SFW per altri progetti né divulgarli a terzi non coinvolti nel Progetto senza preventiva autorizzazione scritta di SFW;</li>
+        <li><strong>(e)</strong> corrispondere a SFW il corrispettivo di progettazione nei tempi e nei modi indicati all'Art. 3.4 nei soli casi in cui il Fee Waiver non sia applicabile (Scenario 3);</li>
+        <li><strong>(f)</strong> designare un referente interno comunicandone i dati di contatto entro la data di sottoscrizione del presente Accordo.</li>
+      </ul>
+    </section>
+
+    <section class="ctr-section">
+      <h3>Art. 7 — Proprietà Intellettuale degli Elaborati</h3>
+      <p>7.1 Tutti gli elaborati tecnici prodotti da SFW nell'ambito del presente Incarico — relazioni, schemi, capitolati, computi metrici, specifiche — sono e rimangono di proprietà di SFW fino al perfezionamento del Fee Waiver ovvero al completo pagamento del corrispettivo di progettazione.</p>
+      <p>7.2 Al perfezionamento del Fee Waiver (Scenario 1 o 2) ovvero al completo pagamento del corrispettivo (Scenario 3), SFW concede al Cliente una licenza d'uso non esclusiva, non cedibile e limitata al singolo Progetto, per l'utilizzo degli elaborati ai fini della realizzazione, gestione e manutenzione dell'edificio di riferimento.</p>
+      <p>7.3 Il Cliente non potrà riutilizzare gli elaborati di SFW per altri progetti senza preventiva autorizzazione scritta e senza corresponsione di un ulteriore corrispettivo da concordarsi. La metodologia Fee Waiver, il know-how e i criteri di selezione dei brand partner rimangono in ogni caso di esclusiva proprietà intellettuale di SFW.</p>
+    </section>
+
+    <section class="ctr-section">
+      <h3>Art. 8 — Riservatezza</h3>
+      <p>8.1 Le Parti si impegnano a mantenere riservate tutte le informazioni confidenziali scambiate nell'ambito del presente Incarico — ivi compresi i capitolati tecnici, le specifiche dei brand partner, i dati di progetto, le condizioni economiche e le informazioni sui clienti finali — per tutta la durata dell'Accordo e per 3 (tre) anni successivi alla sua conclusione.</p>
+      <p>8.2 Le Parti si impegnano a non utilizzare le informazioni confidenziali dell'altra Parte per finalità diverse da quelle del presente Incarico. L'obbligo non si applica alle informazioni di pubblico dominio o divulgate per obbligo di legge.</p>
+    </section>
+
+    <section class="ctr-section">
+      <h3>Art. 9 — Limitazione di Responsabilità</h3>
+      <p>9.1 SFW risponde verso il Cliente per i danni diretti causati da inadempimento colposo dei propri obblighi professionali, nei limiti del corrispettivo di progettazione indicato all'Art. 3.1. Sono esclusi i danni indiretti, le perdite di profitto e le perdite di opportunità commerciale.</p>
+      <p>9.2 SFW non risponde di: (i) ritardi imputabili a tardiva o incompleta fornitura di documentazione da parte del Cliente; (ii) incompatibilità tra le specifiche tecniche di SFW e le scelte di installazione autonomamente operate dal Cliente o da terzi; (iii) vizi o difetti degli impianti imputabili a installazione non conforme ai capitolati di SFW.</p>
+      <p>9.3 Le specifiche tecniche e i capitolati di SFW sono elaborati sulla base delle informazioni fornite dal Cliente e dello stato dell'arte al momento dell'Incarico. SFW non risponde di variazioni normative o tecnologiche sopravvenute dopo la consegna degli elaborati definitivi.</p>
+    </section>
+
+    <section class="ctr-section">
+      <h3>Art. 10 — Tutela dei Dati Personali</h3>
+      <p>Le Parti trattano i dati personali eventualmente scambiati nell'esecuzione del presente Incarico nel rispetto del GDPR (Reg. UE 679/2016) e del D.Lgs. 196/2003. Ciascuna Parte è autonomo titolare del trattamento dei dati di propria pertinenza. I dati delle persone di contatto sono trattati esclusivamente per le finalità di gestione del rapporto professionale.</p>
+    </section>
+
+    <section class="ctr-section">
+      <h3>Art. 11 — Legge Applicabile, Foro Competente e Disposizioni Finali</h3>
+      <p>11.1 Il presente Accordo è disciplinato dalla legge italiana. Le Parti tentano una composizione amichevole di qualsiasi controversia entro 30 giorni dalla notifica scritta. In mancanza di accordo, le controversie sono devolute alla competenza esclusiva del Tribunale di <span data-f="foro"></span>.</p>
+      <p>11.2 Il presente Accordo costituisce l'intero accordo tra le Parti per il Progetto e sostituisce ogni precedente intesa. Qualsiasi modifica deve essere concordata per iscritto e sottoscritta da entrambe le Parti. La nullità di una clausola non pregiudica le restanti.</p>
+      <p>11.3 Le comunicazioni formali sono effettuate a mezzo PEC o raccomandata A/R agli indirizzi indicati in copertina, con efficacia dalla data di ricezione.</p>
+    </section>
+
+    <section class="ctr-section ctr-1341">
+      <p><strong>APPROVAZIONE SPECIFICA AI SENSI DEGLI ARTT. 1341 E 1342 C.C.</strong></p>
+      <p>Le Parti approvano specificamente ai sensi degli artt. 1341 e 1342 c.c.: Art. 3.5 (corrispettivo per varianti); Art. 4.4 (esclusione dello Scenario 3 per indisponibilità); Art. 7 (proprietà intellettuale degli elaborati); Art. 9 (limitazione di responsabilità); Art. 11.1 (foro competente esclusivo).</p>
+    </section>
+
+    <!-- Sottoscrizioni -->
+    <section class="ctr-section ctr-signs">
+      <h2>Sottoscrizioni</h2>
+      <p>Le Parti, avendo preso visione integrale del presente Contratto di Prestazione di Servizi Tecnici, lo sottoscrivono per accettazione espressa:</p>
+      <div class="ctr-sign-grid">
+        <div>
+          <p><strong>Per Synapsis FW S.r.l.</strong></p>
+          <div class="ctr-sign-line"></div>
+          <p class="ctr-sign-meta">Firma del Legale Rappresentante</p>
+          <p class="ctr-sign-meta">Nome e Cognome: <span data-f="sfw_legal"></span></p>
+          <p class="ctr-sign-meta">Luogo e Data: <span data-f="sign_place"></span> · <span data-f="sign_date"></span></p>
+        </div>
+        <div>
+          <p><strong>Per il Cliente</strong></p>
+          <div class="ctr-sign-line"></div>
+          <p class="ctr-sign-meta">Firma del Legale Rappresentante</p>
+          <p class="ctr-sign-meta">Nome e Cognome: <span data-f="client_legal"></span></p>
+          <p class="ctr-sign-meta">Luogo e Data: <span data-f="sign_place"></span> · <span data-f="sign_date"></span></p>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <div class="no-print" style="text-align:center;color:#888;font-size:13px;padding:1.5rem 0 3rem;">
+    Documento template — da sottoporre a revisione legale prima della firma.
+  </div>
+</AppLayout>
+
+<style is:global>
+  /* === Toolbar === */
+  .ctr-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 920px;
+    margin: 0 auto 1.5rem;
+    padding: 0;
+  }
+  .ctr-toolbar .btn {
+    height: 38px;
+    padding: 0 16px;
+    border: 1px solid #d0d0d0;
+    border-radius: 8px;
+    background: #fff;
+    color: #1E1E1E;
+    font-size: 13px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-weight: 500;
+  }
+  .ctr-toolbar .btn:hover { background: #f5f5f5; }
+  .ctr-toolbar .btn.p { background: #E8580A; color: #fff; border-color: #E8580A; }
+  .ctr-toolbar .btn.p:hover { background: #c94800; }
+
+  /* === Documento === */
+  .ctr {
+    max-width: 920px;
+    margin: 0 auto;
+    background: #fff;
+    color: #1E1E1E;
+    padding: 3rem 3.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-family: 'Times New Roman', Georgia, serif;
+    font-size: 11pt;
+    line-height: 1.55;
+  }
+
+  .ctr-cover {
+    text-align: center;
+    padding: 1rem 0 3rem;
+    border-bottom: 1px solid #1E1E1E;
+    margin-bottom: 2rem;
+  }
+  .ctr-brand {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: #E8580A;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .ctr-title {
+    font-size: 24pt;
+    font-weight: 600;
+    line-height: 1.15;
+    margin: 0 0 0.75rem;
+    letter-spacing: 0.02em;
+  }
+  .ctr-sub { font-size: 12pt; color: #444; margin: 0; }
+
+  .ctr-section { margin: 2rem 0; }
+  .ctr-section h2 {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 11pt;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 0 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #1E1E1E;
+  }
+  .ctr-section h3 {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 11.5pt;
+    font-weight: 600;
+    margin: 1.5rem 0 0.75rem;
+    color: #1E1E1E;
+  }
+  .ctr-section p { margin: 0.5rem 0; text-align: justify; }
+  .ctr-section ul { margin: 0.5rem 0 1rem 1.5rem; padding: 0; }
+  .ctr-section li { margin: 0.4rem 0; text-align: justify; }
+
+  .ctr-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10.5pt;
+  }
+  .ctr-table td {
+    padding: 7px 10px;
+    border-bottom: 1px solid #e0e0e0;
+    vertical-align: top;
+  }
+  .ctr-table td.lbl {
+    font-weight: 600;
+    width: 38%;
+    color: #444;
+  }
+
+  .ctr-parties {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  .ctr-party {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    background: #fafafa;
+  }
+  .ctr-party-tag {
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #E8580A;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .ctr-party-name {
+    font-weight: 700;
+    font-size: 11.5pt;
+    margin-bottom: 0.15rem;
+  }
+  .ctr-party-sub { font-size: 10pt; color: #666; margin-bottom: 0.5rem; }
+  .ctr-dl { margin: 0; font-size: 10pt; }
+  .ctr-dl dt {
+    display: inline-block;
+    font-weight: 600;
+    color: #555;
+    min-width: 110px;
+  }
+  .ctr-dl dd { display: inline; margin: 0; }
+  .ctr-dl dd::after { content: "\A"; white-space: pre; }
+
+  .ctr-meta {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px dashed #ccc;
+    font-size: 10pt;
+    color: #555;
+  }
+
+  .ctr-fee {
+    background: #fff8f5;
+    border: 1px solid #E8580A;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    margin: 1rem 0;
+    font-size: 11.5pt;
+  }
+  .ctr-note {
+    font-size: 9.5pt;
+    font-style: italic;
+    color: #666;
+    margin-top: 0;
+  }
+
+  .ctr-1341 {
+    border: 1.5px solid #1E1E1E;
+    padding: 0.75rem 1rem;
+    margin: 1.5rem 0;
+  }
+  .ctr-1341 p { margin: 0.25rem 0; }
+
+  .ctr-signs { margin-top: 3rem; }
+  .ctr-sign-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+  .ctr-sign-line {
+    border-bottom: 1px solid #1E1E1E;
+    height: 60px;
+    margin-bottom: 0.5rem;
+  }
+  .ctr-sign-meta {
+    font-size: 9.5pt;
+    color: #555;
+    margin: 0.25rem 0;
+  }
+
+  /* placeholder vuoto per campi non compilati */
+  [data-f]:empty::after {
+    content: "____________________";
+    color: #aaa;
+    letter-spacing: 0.05em;
+  }
+
+  /* === Print === */
+  @media print {
+    body { background: #fff !important; }
+    .no-print { display: none !important; }
+    header[data-header], footer { display: none !important; }
+    main { padding: 0 !important; }
+    .ctr {
+      max-width: 100%;
+      margin: 0;
+      padding: 1.5cm 2cm;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    .ctr-section { page-break-inside: avoid; }
+    .ctr-cover, .ctr-section h2, .ctr-section h3 { page-break-after: avoid; }
+  }
+
+  @media (max-width: 720px) {
+    .ctr { padding: 1.5rem 1.25rem; }
+    .ctr-parties, .ctr-sign-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script is:inline>
+  // Legge i dati dal sessionStorage e li inietta nei placeholder data-f
+  function fillFields() {
+    let data = {};
+    try {
+      const raw = sessionStorage.getItem('sfw-contract-data');
+      if (raw) data = JSON.parse(raw);
+    } catch (e) {}
+
+    document.querySelectorAll('[data-f]').forEach(el => {
+      const key = el.getAttribute('data-f');
+      if (data[key]) el.textContent = data[key];
+    });
+  }
+
+  fillFields();
+
+  // Bottone stampa
+  document.getElementById('btn-print')?.addEventListener('click', () => {
+    window.print();
+  });
+
+  // Export in Word (HTML → .doc, Word lo apre senza problemi e si può risalvare come .docx)
+  function exportWord() {
+    const ctr = document.getElementById('ctr-content');
+    if (!ctr) return;
+
+    // Stili Word-friendly inline (Word non rispetta tutti i CSS moderni come @media print, color-mix, ecc.)
+    const wordStyles = `
+      <style>
+        body { font-family: 'Times New Roman', Georgia, serif; font-size: 11pt; line-height: 1.55; color: #1E1E1E; }
+        h1 { font-size: 22pt; font-weight: bold; margin: 0 0 10pt; text-align: center; }
+        h2 { font-family: Arial, sans-serif; font-size: 11pt; font-weight: bold; letter-spacing: 1pt; text-transform: uppercase; margin: 20pt 0 10pt; padding-bottom: 4pt; border-bottom: 1pt solid #1E1E1E; }
+        h3 { font-family: Arial, sans-serif; font-size: 11pt; font-weight: bold; margin: 14pt 0 6pt; }
+        p { margin: 5pt 0; text-align: justify; }
+        ul { margin: 5pt 0 10pt 20pt; padding: 0; }
+        li { margin: 3pt 0; text-align: justify; }
+        table { width: 100%; border-collapse: collapse; font-size: 10.5pt; margin: 8pt 0; }
+        td { padding: 5pt 8pt; border-bottom: 0.5pt solid #cccccc; vertical-align: top; }
+        td.lbl { font-weight: bold; width: 38%; color: #444; }
+        .ctr-cover { text-align: center; padding: 0 0 20pt; border-bottom: 1pt solid #1E1E1E; margin-bottom: 16pt; }
+        .ctr-brand { font-family: Arial, sans-serif; font-size: 10pt; color: #E8580A; letter-spacing: 1pt; margin-bottom: 8pt; font-weight: bold; }
+        .ctr-sub { font-size: 12pt; color: #444; margin: 0; text-align: center; }
+        .ctr-parties { width: 100%; }
+        .ctr-party { border: 0.5pt solid #cccccc; padding: 8pt 12pt; margin-bottom: 8pt; background: #fafafa; }
+        .ctr-party-tag { font-family: Arial, sans-serif; font-size: 9pt; font-weight: bold; color: #E8580A; letter-spacing: 1pt; margin-bottom: 4pt; }
+        .ctr-party-name { font-weight: bold; font-size: 11.5pt; margin-bottom: 2pt; }
+        .ctr-party-sub { font-size: 10pt; color: #666; margin-bottom: 4pt; }
+        .ctr-dl { margin: 0; font-size: 10pt; }
+        .ctr-dl dt { display: inline-block; font-weight: bold; min-width: 100pt; }
+        .ctr-dl dd { display: inline; margin: 0; }
+        .ctr-meta { padding-top: 8pt; border-top: 0.5pt dashed #cccccc; font-size: 10pt; color: #555; }
+        .ctr-fee { background: #fff8f5; border: 0.5pt solid #E8580A; padding: 8pt 12pt; margin: 10pt 0; font-size: 11.5pt; }
+        .ctr-note { font-size: 9.5pt; font-style: italic; color: #666; }
+        .ctr-1341 { border: 1pt solid #1E1E1E; padding: 8pt 12pt; margin: 14pt 0; }
+        .ctr-1341 p { margin: 3pt 0; }
+        .ctr-sign-line { border-bottom: 0.5pt solid #1E1E1E; height: 50pt; margin-bottom: 4pt; }
+        .ctr-sign-meta { font-size: 9.5pt; color: #555; margin: 2pt 0; }
+        .ctr-signs { margin-top: 25pt; }
+      </style>`;
+
+    // Sostituisco i [data-f]:empty::after CSS con un placeholder testuale visibile in Word
+    let html = ctr.innerHTML;
+    // Word non supporta ::after, sostituisco i campi vuoti con underscore visibili
+    const tmp = document.createElement('div');
+    tmp.innerHTML = html;
+    tmp.querySelectorAll('[data-f]').forEach((el) => {
+      if (!el.textContent.trim()) {
+        el.textContent = '____________________';
+      }
+    });
+    // Rendo le sottoscrizioni a 2 colonne come tabella (Word gestisce meglio le tabelle)
+    const signGrid = tmp.querySelector('.ctr-sign-grid');
+    if (signGrid) {
+      const cols = Array.from(signGrid.children);
+      if (cols.length === 2) {
+        const tbl = document.createElement('table');
+        tbl.innerHTML = `<tr><td style="width:50%;border:none;padding-right:15pt;vertical-align:top;">${cols[0].innerHTML}</td><td style="width:50%;border:none;padding-left:15pt;vertical-align:top;">${cols[1].innerHTML}</td></tr>`;
+        signGrid.replaceWith(tbl);
+      }
+    }
+    // Idem parti contraenti — 2 colonne come tabella
+    const parties = tmp.querySelector('.ctr-parties');
+    if (parties) {
+      const cols = Array.from(parties.children);
+      if (cols.length === 2) {
+        const tbl = document.createElement('table');
+        tbl.innerHTML = `<tr><td style="width:50%;border:none;padding-right:8pt;vertical-align:top;">${cols[0].outerHTML}</td><td style="width:50%;border:none;padding-left:8pt;vertical-align:top;">${cols[1].outerHTML}</td></tr>`;
+        parties.replaceWith(tbl);
+      }
+    }
+    html = tmp.innerHTML;
+
+    const filename = 'Contratto_Synapsis_FW';
+
+    const docHtml = `<!DOCTYPE html>
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+      xmlns:w="urn:schemas-microsoft-com:office:word"
+      xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+  <meta charset="utf-8">
+  <title>${filename}</title>
+  <!--[if gte mso 9]>
+  <xml>
+    <w:WordDocument>
+      <w:View>Print</w:View>
+      <w:Zoom>100</w:Zoom>
+      <w:DoNotPromptForConvert/>
+      <w:DoNotShowRevisions/>
+    </w:WordDocument>
+  </xml>
+  <![endif]-->
+  <style>
+    @page { size: A4; margin: 2cm; }
+    div.WordSection1 { page: WordSection1; }
+  </style>
+  ${wordStyles}
+</head>
+<body>
+  <div class="WordSection1">
+    ${html}
+  </div>
+</body>
+</html>`;
+
+    const blob = new Blob(['﻿', docHtml], { type: 'application/msword' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = filename + '.doc';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(link.href);
+  }
+
+  document.getElementById('btn-export-word')?.addEventListener('click', exportWord);
+</script>

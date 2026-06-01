@@ -1,0 +1,108 @@
+---
+// Wrapper per contenuti long-form (pagine legali, etc.)
+// Stile prose custom — niente plugin esterni
+---
+
+<article class="prose-legal mx-auto max-w-3xl">
+  <slot />
+</article>
+
+<style is:global>
+  .prose-legal {
+    color: var(--color-brand-ink);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .prose-legal h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-top: 3.5rem;
+    margin-bottom: 1.25rem;
+    scroll-margin-top: 6rem;
+  }
+
+  .prose-legal h2:first-child { margin-top: 0; }
+
+  .prose-legal h3 {
+    font-family: var(--font-display);
+    font-size: 1.375rem;
+    line-height: 1.25;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .prose-legal h2 + h3 { margin-top: 1.5rem; }
+
+  .prose-legal p {
+    color: color-mix(in srgb, var(--color-brand-ink) 80%, transparent);
+    margin-block: 1rem;
+  }
+
+  .prose-legal ul, .prose-legal ol {
+    margin-block: 1rem;
+    padding-left: 1.5rem;
+    color: color-mix(in srgb, var(--color-brand-ink) 80%, transparent);
+  }
+
+  .prose-legal ul { list-style: disc; }
+  .prose-legal ol { list-style: decimal; }
+  .prose-legal li { margin-block: 0.4rem; }
+  .prose-legal li::marker { color: var(--color-brand-orange); }
+
+  .prose-legal a {
+    color: var(--color-brand-orange);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    transition: color 0.2s;
+  }
+  .prose-legal a:hover { color: var(--color-brand-orange-deep); }
+
+  .prose-legal strong { font-weight: 600; color: var(--color-brand-ink); }
+
+  .prose-legal .placeholder {
+    background: color-mix(in srgb, var(--color-brand-highlight) 50%, transparent);
+    padding: 0.1em 0.4em;
+    border-radius: 0.25rem;
+    font-family: ui-monospace, monospace;
+    font-size: 0.9em;
+    color: var(--color-brand-orange-deep);
+  }
+
+  .prose-legal table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-block: 1.5rem;
+    font-size: 0.9rem;
+  }
+  .prose-legal th, .prose-legal td {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-brand-ink) 12%, transparent);
+  }
+  .prose-legal th {
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.75rem;
+    color: color-mix(in srgb, var(--color-brand-ink) 60%, transparent);
+  }
+
+  .prose-legal hr {
+    border: 0;
+    border-top: 1px solid color-mix(in srgb, var(--color-brand-ink) 12%, transparent);
+    margin-block: 3rem;
+  }
+
+  .prose-legal .callout {
+    margin-block: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-brand-cream);
+    border-left: 3px solid var(--color-brand-orange);
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+  }
+</style>
