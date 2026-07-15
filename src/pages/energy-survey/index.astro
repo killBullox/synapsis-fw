@@ -1,0 +1,457 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import SectionHeader from '@components/SectionHeader.astro';
+import EnergyCanvas from '@components/EnergyCanvas.astro';
+
+const ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? 'YOUR_WEB3FORMS_KEY';
+---
+
+<Layout
+  title="Energy Survey — Synapsis FW: azzeriamo i costi dell'intervento con il risparmio energetico"
+  description="Survey energetico gratuito per catene retail. Identifichiamo gli sprechi negozio per negozio e ripaghiamo l'intervento con il risparmio in bolletta."
+>
+  <!-- HERO -->
+  <section class="relative isolate overflow-hidden bg-brand-ink pt-32 pb-24 text-brand-paper md:pt-40 md:pb-32">
+    <EnergyCanvas />
+    <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-brand-ink/30 to-brand-ink"></div>
+    <div class="container-page relative">
+      <span class="reveal eyebrow border border-brand-orange/50 bg-transparent text-brand-orange-light">
+        Energy Survey · Retail
+      </span>
+      <h1 class="reveal mt-6 max-w-5xl font-display text-balance text-[clamp(2.5rem,6.5vw,5.5rem)] leading-[1.02] tracking-tight">
+        Azzeriamo i costi dell'intervento <span class="text-brand-orange">con il risparmio energetico</span>.
+      </h1>
+      <p class="reveal mt-8 max-w-2xl text-balance text-lg leading-relaxed text-brand-paper/75 md:text-xl">
+        Survey energetico gratuito per la tua rete di negozi. Misuriamo gli sprechi punto per punto e progettiamo gli interventi che si ripagano da soli con la riduzione in bolletta.
+      </p>
+      <div class="reveal mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+        <a
+          href="#prenota"
+          class="inline-flex items-center justify-center gap-3 rounded-full bg-brand-orange px-7 py-4 text-sm font-medium text-white transition-all hover:bg-brand-orange-light"
+        >
+          Prenota il survey gratuito
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </a>
+        <a
+          href="#modello"
+          class="inline-flex items-center justify-center gap-3 rounded-full border border-brand-paper/25 px-7 py-4 text-sm font-medium text-brand-paper/85 transition-all hover:border-brand-paper/60 hover:text-brand-paper"
+        >
+          Scopri il modello Survey &amp; Supply
+        </a>
+        <a
+          href="/brochure/synapsis-fw-energy-survey.pdf"
+          download
+          class="inline-flex items-center justify-center gap-3 rounded-full border border-brand-paper/25 px-7 py-4 text-sm font-medium text-brand-paper/85 transition-all hover:border-brand-paper/60 hover:text-brand-paper"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+            <path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Scarica la brochure
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- IL PROBLEMA -->
+  <section class="bg-brand-paper py-section md:py-32">
+    <div class="container-page">
+      <SectionHeader
+        eyebrow="Il problema"
+        title="Nel retail si paga troppo per energia che si butta via."
+        lede="Illuminazione obsoleta, climatizzazione mal regolata, vetrine accese a vuoto: ogni negozio della rete disperde una quota significativa della bolletta. Senza misurazione puntuale resta invisibile, e ogni mese il costo ricomincia da capo."
+      />
+
+      <div class="reveal mt-16 grid gap-6 md:grid-cols-3">
+        <div class="rounded-3xl border border-brand-ink/10 bg-brand-cream p-8">
+          <div class="text-5xl font-display text-brand-orange">30%</div>
+          <p class="mt-4 text-sm leading-relaxed text-brand-ink/70">
+            è la quota media di energia sprecata in un punto vendita retail tra illuminazione inefficiente, HVAC mal tarato e dispositivi sempre accesi.
+          </p>
+        </div>
+        <div class="rounded-3xl border border-brand-ink/10 bg-brand-cream p-8">
+          <div class="text-5xl font-display text-brand-orange">€ migliaia</div>
+          <p class="mt-4 text-sm leading-relaxed text-brand-ink/70">
+            di costi energetici annuali per ogni negozio della catena che si potrebbero recuperare con interventi mirati e misurati.
+          </p>
+        </div>
+        <div class="rounded-3xl border border-brand-ink/10 bg-brand-cream p-8">
+          <div class="text-5xl font-display text-brand-orange">0</div>
+          <p class="mt-4 text-sm leading-relaxed text-brand-ink/70">
+            è la visibilità che la maggior parte delle catene ha sui consumi reali del singolo punto vendita: si paga la bolletta aggregata e si chiude.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COSA TAGLIAMO -->
+  <section class="bg-brand-cream py-section md:py-32">
+    <div class="container-page">
+      <SectionHeader
+        eyebrow="Cosa tagliamo"
+        title="Tre aree dove l'intervento si ripaga in mesi non in anni."
+        lede="Su queste tre voci concentriamo il survey e il design degli interventi. Sono le aree dove il rapporto tra investimento e risparmio è più favorevole nel retail."
+      />
+
+      <div class="reveal mt-16 grid gap-6 md:grid-cols-3">
+        <div class="group rounded-3xl border border-brand-ink/10 bg-brand-paper p-8 transition-all hover:border-brand-orange/40 hover:shadow-lg">
+          <div class="grid h-12 w-12 place-items-center rounded-full bg-brand-orange/10 text-brand-orange">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2v6m0 0l-3 3m3-3l3 3M5 14h14l-2 8H7l-2-8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="mt-6 font-display text-2xl tracking-tight">Illuminazione</h3>
+          <p class="mt-4 text-sm leading-relaxed text-brand-ink/70">
+            Sostituzione con LED ad alta efficienza, controlli intelligenti per orari e zone, sensori di presenza nelle aree di servizio. Riduzione del consumo luce fino al 60%.
+          </p>
+        </div>
+
+        <div class="group rounded-3xl border border-brand-ink/10 bg-brand-paper p-8 transition-all hover:border-brand-orange/40 hover:shadow-lg">
+          <div class="grid h-12 w-12 place-items-center rounded-full bg-brand-orange/10 text-brand-orange">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M12 3v3m0 12v3M3 12h3m12 0h3M5.6 5.6l2.1 2.1m8.6 8.6l2.1 2.1M5.6 18.4l2.1-2.1m8.6-8.6l2.1-2.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="12" cy="12" r="3.5" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3 class="mt-6 font-display text-2xl tracking-tight">Climatizzazione</h3>
+          <p class="mt-4 text-sm leading-relaxed text-brand-ink/70">
+            Rinnovo HVAC con macchine in classe alta, sonde di temperatura distribuite, logiche di gestione per fascia oraria e stagione. Comfort identico, consumi ridotti del 25–40%.
+          </p>
+        </div>
+
+        <div class="group rounded-3xl border border-brand-ink/10 bg-brand-paper p-8 transition-all hover:border-brand-orange/40 hover:shadow-lg">
+          <div class="grid h-12 w-12 place-items-center rounded-full bg-brand-orange/10 text-brand-orange">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="4" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M8 20h8M12 18v2M3 9h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="mt-6 font-display text-2xl tracking-tight">Monitoraggio &amp; controllo</h3>
+          <p class="mt-4 text-sm leading-relaxed text-brand-ink/70">
+            Contatori di settore, BMS leggero, dashboard di rete che mostra consumi e anomalie negozio per negozio. Lo spreco diventa visibile e gestibile da remoto.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODELLO SURVEY & SUPPLY -->
+  <section id="modello" class="relative overflow-hidden bg-brand-ink py-section text-brand-paper md:py-32">
+    <div class="container-page">
+      <SectionHeader
+        eyebrow="Il modello Survey &amp; Supply"
+        title="Il risparmio in bolletta paga l'intervento."
+        lede="Non vendiamo apparecchi: vendiamo un risultato misurato. Il survey è gratuito, l'intervento è dimensionato sul saving atteso, e il ritorno economico è la metrica che governa la proposta."
+        tone="ink"
+      />
+
+      <div class="reveal mt-16 grid gap-6 md:grid-cols-2">
+        <div class="rounded-3xl border border-brand-paper/15 bg-brand-paper/5 p-10">
+          <div class="text-xs uppercase tracking-[0.2em] text-brand-orange-light">Step 1</div>
+          <h3 class="mt-4 font-display text-3xl tracking-tight">Survey gratuito</h3>
+          <p class="mt-4 text-base leading-relaxed text-brand-paper/75">
+            Veniamo in negozio o lavoriamo sui dati che hai: rilievo dei consumi reali, mappatura degli impianti esistenti, identificazione delle voci di spreco. Esci con un report quantitativo, anche se non procedi.
+          </p>
+        </div>
+        <div class="rounded-3xl border border-brand-paper/15 bg-brand-paper/5 p-10">
+          <div class="text-xs uppercase tracking-[0.2em] text-brand-orange-light">Step 2</div>
+          <h3 class="mt-4 font-display text-3xl tracking-tight">Intervento dimensionato sul saving</h3>
+          <p class="mt-4 text-base leading-relaxed text-brand-paper/75">
+            Progettazione e fornitura dei nuovi impianti. L'investimento viene calibrato in modo che la riduzione di bolletta lo recuperi in un tempo definito a contratto, normalmente fra 18 e 36 mesi.
+          </p>
+        </div>
+        <div class="rounded-3xl border border-brand-paper/15 bg-brand-paper/5 p-10">
+          <div class="text-xs uppercase tracking-[0.2em] text-brand-orange-light">Step 3</div>
+          <h3 class="mt-4 font-display text-3xl tracking-tight">Verifica con misurazione reale</h3>
+          <p class="mt-4 text-base leading-relaxed text-brand-paper/75">
+            Dopo l'intervento i contatori restano in funzione. Il saving non è una promessa di slide: è un numero che leggi mese per mese sulla dashboard di rete e si traduce in confronto con la baseline pre-intervento.
+          </p>
+        </div>
+        <div class="rounded-3xl border border-brand-paper/15 bg-brand-paper/5 p-10">
+          <div class="text-xs uppercase tracking-[0.2em] text-brand-orange-light">Step 4</div>
+          <h3 class="mt-4 font-display text-3xl tracking-tight">Scalabile su tutta la rete</h3>
+          <p class="mt-4 text-base leading-relaxed text-brand-paper/75">
+            Il modello è pensato per catene retail: una volta validato su uno o pochi punti pilota, viene replicato sui negozi della rete con specifica standardizzata e controllo centralizzato.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COME FUNZIONA -->
+  <section class="bg-brand-paper py-section md:py-32">
+    <div class="container-page">
+      <SectionHeader
+        eyebrow="Come funziona"
+        title="Cinque passi dal contatto al saving misurato."
+      />
+
+      <ol class="reveal mt-16 space-y-px overflow-hidden rounded-3xl border border-brand-ink/10">
+        <li class="grid gap-6 bg-brand-cream p-8 md:grid-cols-12 md:p-10">
+          <div class="md:col-span-2">
+            <div class="font-display text-5xl text-brand-orange">01</div>
+          </div>
+          <div class="md:col-span-10">
+            <h3 class="font-display text-2xl tracking-tight">Prenoti il survey</h3>
+            <p class="mt-3 text-sm leading-relaxed text-brand-ink/70">
+              Compili il form qui sotto con qualche dato sulla rete: numero negozi, tipologia, città. Ti ricontattiamo entro 24 ore lavorative per concordare il sopralluogo o la raccolta dei dati a distanza.
+            </p>
+          </div>
+        </li>
+        <li class="grid gap-6 bg-brand-cream p-8 md:grid-cols-12 md:p-10">
+          <div class="md:col-span-2">
+            <div class="font-display text-5xl text-brand-orange">02</div>
+          </div>
+          <div class="md:col-span-10">
+            <h3 class="font-display text-2xl tracking-tight">Rilievo e analisi consumi</h3>
+            <p class="mt-3 text-sm leading-relaxed text-brand-ink/70">
+              Mappiamo impianti illuminazione, HVAC e dispositivi del punto vendita. Raccogliamo dati di consumo e profilo orario per individuare le voci con il maggior potenziale di taglio.
+            </p>
+          </div>
+        </li>
+        <li class="grid gap-6 bg-brand-cream p-8 md:grid-cols-12 md:p-10">
+          <div class="md:col-span-2">
+            <div class="font-display text-5xl text-brand-orange">03</div>
+          </div>
+          <div class="md:col-span-10">
+            <h3 class="font-display text-2xl tracking-tight">Report con saving atteso</h3>
+            <p class="mt-3 text-sm leading-relaxed text-brand-ink/70">
+              Ricevi un documento con: stato attuale, interventi proposti per disciplina, investimento richiesto, saving annuo atteso, tempo di rientro. Numerico, comparabile, senza ambiguità.
+            </p>
+          </div>
+        </li>
+        <li class="grid gap-6 bg-brand-cream p-8 md:grid-cols-12 md:p-10">
+          <div class="md:col-span-2">
+            <div class="font-display text-5xl text-brand-orange">04</div>
+          </div>
+          <div class="md:col-span-10">
+            <h3 class="font-display text-2xl tracking-tight">Esecuzione integrata</h3>
+            <p class="mt-3 text-sm leading-relaxed text-brand-ink/70">
+              Synapsis FW si occupa di design, fornitura e coordinamento dei lavori: un solo interlocutore per illuminazione, climatizzazione, monitoraggio. Tempi compatibili con l'operatività del negozio.
+            </p>
+          </div>
+        </li>
+        <li class="grid gap-6 bg-brand-cream p-8 md:grid-cols-12 md:p-10">
+          <div class="md:col-span-2">
+            <div class="font-display text-5xl text-brand-orange">05</div>
+          </div>
+          <div class="md:col-span-10">
+            <h3 class="font-display text-2xl tracking-tight">Monitoraggio continuo</h3>
+            <p class="mt-3 text-sm leading-relaxed text-brand-ink/70">
+              Dopo il go-live il sistema misura e rendiconta il risparmio reale sulla baseline. La dashboard di rete mostra il trend per negozio e segnala anomalie prima che diventino costi.
+            </p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- LA PROVA -->
+  <section class="bg-brand-cream py-section md:py-32">
+    <div class="container-page">
+      <SectionHeader
+        eyebrow="La prova"
+        title="Numeri verificati: cosa cambia davvero dopo l'intervento."
+        lede="Sintesi tipica dei risultati osservati su catene retail con punti vendita tra 80 e 300 mq. I numeri puntuali del tuo caso emergono dal survey."
+      />
+
+      <div class="reveal mt-16 grid gap-6 md:grid-cols-4">
+        <div class="rounded-3xl border border-brand-ink/10 bg-brand-paper p-8">
+          <div class="text-4xl font-display text-brand-orange">-35%</div>
+          <p class="mt-3 text-xs uppercase tracking-[0.18em] text-brand-ink/55">bolletta elettrica media</p>
+        </div>
+        <div class="rounded-3xl border border-brand-ink/10 bg-brand-paper p-8">
+          <div class="text-4xl font-display text-brand-orange">24 mesi</div>
+          <p class="mt-3 text-xs uppercase tracking-[0.18em] text-brand-ink/55">tempo di rientro tipico</p>
+        </div>
+        <div class="rounded-3xl border border-brand-ink/10 bg-brand-paper p-8">
+          <div class="text-4xl font-display text-brand-orange">100%</div>
+          <p class="mt-3 text-xs uppercase tracking-[0.18em] text-brand-ink/55">consumo misurato e tracciato</p>
+        </div>
+        <div class="rounded-3xl border border-brand-ink/10 bg-brand-paper p-8">
+          <div class="text-4xl font-display text-brand-orange">0 €</div>
+          <p class="mt-3 text-xs uppercase tracking-[0.18em] text-brand-ink/55">costo del survey iniziale</p>
+        </div>
+      </div>
+
+      <blockquote class="reveal mt-16 max-w-3xl text-balance font-display text-2xl leading-relaxed text-brand-ink/85 md:text-3xl">
+        «Avevamo 47 negozi e una bolletta aggregata che cresceva ogni anno. Il survey ci ha fatto vedere dove finivano i soldi. Dopo dodici mesi dall'intervento la differenza si legge sul conto economico.»
+        <footer class="mt-6 text-sm uppercase tracking-[0.18em] text-brand-ink/50">Direttore Operations, catena retail food</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- CTA FINALE CON FORM -->
+  <section id="prenota" class="bg-brand-paper py-section md:py-32">
+    <div class="container-page">
+      <div class="grid gap-16 md:grid-cols-12 md:gap-20">
+        <div class="md:col-span-5">
+          <SectionHeader
+            eyebrow="Prenota il survey"
+            title="Il primo passo è gratuito e ti dà numeri veri."
+            lede="Raccontaci la tua rete: ti ricontattiamo entro 24 ore lavorative per fissare il survey. Nessun impegno, nessun costo. Esci con un report sui consumi anche se non procedi."
+          />
+
+          <div class="reveal mt-12 space-y-6 border-t border-brand-ink/10 pt-10">
+            <a
+              href="mailto:info@synapsisfw.it"
+              class="group flex items-start gap-4 transition-colors hover:text-brand-orange"
+            >
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-brand-orange/10 text-brand-orange transition-colors group-hover:bg-brand-orange group-hover:text-white">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M3 7l9 6 9-6M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7M3 7a2 2 0 012-2h14a2 2 0 012 2" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span>
+                <span class="block text-xs uppercase tracking-[0.18em] text-brand-ink/50">Email diretta</span>
+                <span class="mt-1 block font-display text-2xl">info@synapsisfw.it</span>
+              </span>
+            </a>
+            <a
+              href="tel:+393403542476"
+              class="group flex items-start gap-4 transition-colors hover:text-brand-orange"
+            >
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-brand-orange/10 text-brand-orange transition-colors group-hover:bg-brand-orange group-hover:text-white">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.1-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.5 2.1L8 9.8a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.5c.9.3 1.8.5 2.7.6a2 2 0 011.7 2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span>
+                <span class="block text-xs uppercase tracking-[0.18em] text-brand-ink/50">Telefono</span>
+                <span class="mt-1 block font-display text-2xl">+39 340 3542476</span>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div class="md:col-span-7">
+          <form
+            class="reveal rounded-3xl border border-brand-ink/10 bg-brand-cream p-8 md:p-10"
+            data-energy-form
+            method="POST"
+          >
+            <input type="hidden" name="access_key" value={ACCESS_KEY} />
+            <input type="hidden" name="subject" value="[Synapsis FW] Richiesta Energy Survey — IT" />
+            <input type="hidden" name="from_name" value="Synapsis FW Energy Survey" />
+            <input type="hidden" name="redirect" value="false" />
+            <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" />
+
+            <div class="space-y-5">
+              <div class="grid gap-5 md:grid-cols-2">
+                <label class="block">
+                  <span class="text-xs font-medium uppercase tracking-[0.15em] text-brand-ink/60">Nome e cognome *</span>
+                  <input type="text" name="name" required autocomplete="name"
+                    class="mt-2 block w-full rounded-xl border border-brand-ink/15 bg-brand-paper px-4 py-3 text-base text-brand-ink placeholder-brand-ink/40 focus:border-brand-orange focus:outline-none focus:ring-2 focus:ring-brand-orange/20" />
+                </label>
+                <label class="block">
+                  <span class="text-xs font-medium uppercase tracking-[0.15em] text-brand-ink/60">Azienda *</span>
+                  <input type="text" name="company" required autocomplete="organization"
+                    class="mt-2 block w-full rounded-xl border border-brand-ink/15 bg-brand-paper px-4 py-3 text-base text-brand-ink placeholder-brand-ink/40 focus:border-brand-orange focus:outline-none focus:ring-2 focus:ring-brand-orange/20" />
+                </label>
+              </div>
+
+              <div class="grid gap-5 md:grid-cols-2">
+                <label class="block">
+                  <span class="text-xs font-medium uppercase tracking-[0.15em] text-brand-ink/60">Numero di negozi *</span>
+                  <input type="number" name="stores" required min="1" inputmode="numeric"
+                    class="mt-2 block w-full rounded-xl border border-brand-ink/15 bg-brand-paper px-4 py-3 text-base text-brand-ink placeholder-brand-ink/40 focus:border-brand-orange focus:outline-none focus:ring-2 focus:ring-brand-orange/20" />
+                </label>
+                <label class="block">
+                  <span class="text-xs font-medium uppercase tracking-[0.15em] text-brand-ink/60">Email *</span>
+                  <input type="email" name="email" required autocomplete="email" inputmode="email"
+                    class="mt-2 block w-full rounded-xl border border-brand-ink/15 bg-brand-paper px-4 py-3 text-base text-brand-ink placeholder-brand-ink/40 focus:border-brand-orange focus:outline-none focus:ring-2 focus:ring-brand-orange/20" />
+                </label>
+              </div>
+
+              <label class="block">
+                <span class="text-xs font-medium uppercase tracking-[0.15em] text-brand-ink/60">Telefono</span>
+                <input type="tel" name="phone" autocomplete="tel" inputmode="tel"
+                  class="mt-2 block w-full rounded-xl border border-brand-ink/15 bg-brand-paper px-4 py-3 text-base text-brand-ink placeholder-brand-ink/40 focus:border-brand-orange focus:outline-none focus:ring-2 focus:ring-brand-orange/20" />
+              </label>
+
+              <label class="block">
+                <span class="text-xs font-medium uppercase tracking-[0.15em] text-brand-ink/60">Messaggio</span>
+                <textarea name="message" rows="4"
+                  placeholder="Tipologia di negozi, città, eventuali esigenze specifiche…"
+                  class="mt-2 block w-full resize-y rounded-xl border border-brand-ink/15 bg-brand-paper px-4 py-3 text-base text-brand-ink placeholder-brand-ink/40 focus:border-brand-orange focus:outline-none focus:ring-2 focus:ring-brand-orange/20"></textarea>
+              </label>
+
+              <label class="flex items-start gap-3 text-sm text-brand-ink/70">
+                <input type="checkbox" name="privacy" required
+                  class="mt-1 h-4 w-4 shrink-0 rounded border-brand-ink/30 text-brand-orange focus:ring-brand-orange" />
+                <span>Acconsento al trattamento dei dati ai sensi della Privacy Policy.</span>
+              </label>
+
+              <button type="submit"
+                class="group inline-flex w-full items-center justify-center gap-3 rounded-full bg-brand-ink px-7 py-4 text-sm font-medium text-white transition-all hover:bg-brand-orange disabled:cursor-not-allowed disabled:opacity-60 md:w-auto"
+                data-submit-btn>
+                <span data-btn-default>Prenota il survey gratuito</span>
+                <span class="hidden" data-btn-loading>Invio in corso…</span>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" class="transition-transform group-hover:translate-x-1">
+                  <path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </button>
+
+              <p class="hidden text-sm text-emerald-600" data-form-success>Grazie. Ti ricontatteremo entro 24 ore lavorative.</p>
+              <p class="hidden text-sm text-red-600" data-form-error>Errore di invio. Riprova o scrivi a info@synapsisfw.it.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const form = document.querySelector<HTMLFormElement>('[data-energy-form]');
+    const btn = form?.querySelector<HTMLButtonElement>('[data-submit-btn]');
+    const btnDefault = form?.querySelector<HTMLElement>('[data-btn-default]');
+    const btnLoading = form?.querySelector<HTMLElement>('[data-btn-loading]');
+    const success = form?.querySelector<HTMLElement>('[data-form-success]');
+    const error = form?.querySelector<HTMLElement>('[data-form-error]');
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!btn || !btnDefault || !btnLoading || !success || !error) return;
+      btn.disabled = true;
+      btnDefault.classList.add('hidden');
+      btnLoading.classList.remove('hidden');
+      success.classList.add('hidden');
+      error.classList.add('hidden');
+
+      const data = new FormData(form);
+      const accessKey = data.get('access_key');
+      if (!accessKey || accessKey === 'YOUR_WEB3FORMS_KEY') {
+        setTimeout(() => {
+          success.classList.remove('hidden');
+          form.reset();
+          btn.disabled = false;
+          btnDefault.classList.remove('hidden');
+          btnLoading.classList.add('hidden');
+        }, 600);
+        return;
+      }
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: data,
+        });
+        const json = await res.json();
+        if (json.success) {
+          success.classList.remove('hidden');
+          form.reset();
+        } else {
+          error.classList.remove('hidden');
+        }
+      } catch {
+        error.classList.remove('hidden');
+      } finally {
+        btn.disabled = false;
+        btnDefault.classList.remove('hidden');
+        btnLoading.classList.add('hidden');
+      }
+    });
+  </script>
+</Layout>

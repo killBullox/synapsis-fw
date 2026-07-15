@@ -55,9 +55,17 @@ const legalPaths =
 
       <div class="md:col-span-2">
         <h3 class="text-xs font-medium uppercase tracking-[0.18em] text-brand-paper/50">
-          {lang === 'it' ? 'Riservato' : 'Reserved'}
+          {lang === 'it' ? 'Servizi' : 'Services'}
         </h3>
         <ul class="mt-4 space-y-2 text-sm text-brand-paper/80">
+          <li>
+            <a
+              href={lang === 'it' ? '/energy-survey/' : '/en/energy-survey/'}
+              class="hover:text-brand-orange"
+            >
+              Energy Survey
+            </a>
+          </li>
           <li>
             <a
               href={lang === 'it' ? '/area-riservata/' : '/en/private-area/'}

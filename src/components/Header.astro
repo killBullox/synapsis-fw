@@ -4,12 +4,19 @@ import { getLangFromUrl, useTranslations, localizedPath } from '@i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
+const energySurveyPath = lang === 'it' ? '/energy-survey/' : '/en/energy-survey/';
+
+// Gli anchor delle sezioni vivono SOLO in homepage: da altre pagine (es. /energy-survey/)
+// i link devono puntare a "<home>#anchor", non all'anchor relativo (che resterebbe sulla pagina corrente).
+const homePath = lang === 'it' ? '/' : '/en/';
+
 const links = [
-  { label: t('nav.solution'), href: '#soluzione' },
-  { label: t('nav.feeWaiver'), href: '#fee-waiver' },
-  { label: t('nav.disciplines'), href: '#discipline' },
-  { label: t('nav.cases'), href: '#case-study' },
-  { label: t('nav.process'), href: '#processo' },
+  { label: t('nav.solution'), href: `${homePath}#soluzione` },
+  { label: t('nav.feeWaiver'), href: `${homePath}#fee-waiver` },
+  { label: t('nav.disciplines'), href: `${homePath}#discipline` },
+  { label: t('nav.cases'), href: `${homePath}#case-study` },
+  { label: t('nav.process'), href: `${homePath}#processo` },
+  { label: t('nav.energySurvey'), href: energySurveyPath },
 ];
 
 const otherLang = lang === 'it' ? 'en' : 'it';
@@ -57,7 +64,7 @@ const otherLangPath = localizedPath('/', otherLang);
         {otherLang.toUpperCase()}
       </a>
       <a
-        href="#contatti"
+        href={`${homePath}#contatti`}
         class="hidden rounded-full bg-brand-ink px-5 py-2.5 text-sm font-medium text-white transition-all hover:bg-brand-orange md:inline-block"
       >
         {t('nav.cta')}
@@ -133,7 +140,7 @@ const otherLangPath = localizedPath('/', otherLang);
         {otherLang}
       </a>
       <a
-        href="#contatti"
+        href={`${homePath}#contatti`}
         class="rounded-full bg-brand-ink px-6 py-3 text-sm font-medium text-white"
         data-menu-link
       >

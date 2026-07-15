@@ -14,6 +14,7 @@ export const ui = {
     'nav.disciplines': 'Discipline',
     'nav.cases': 'Case study',
     'nav.process': 'Processo',
+    'nav.energySurvey': 'Energy Survey',
     'nav.contact': 'Contatti',
     'nav.cta': 'Briefing gratuito',
 
@@ -195,6 +196,7 @@ export const ui = {
     'nav.disciplines': 'Disciplines',
     'nav.cases': 'Case studies',
     'nav.process': 'Process',
+    'nav.energySurvey': 'Energy Survey',
     'nav.contact': 'Contact',
     'nav.cta': 'Free briefing',
 
