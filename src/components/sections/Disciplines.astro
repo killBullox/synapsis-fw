@@ -5,7 +5,7 @@ import { getLangFromUrl, useTranslations } from '@i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const items = [0, 1, 2, 3, 4].map((i) => ({
+const items = [0, 1, 2, 3, 4, 5, 6].map((i) => ({
   title: t(`disciplines.items.${i}.title` as any),
   body: t(`disciplines.items.${i}.body` as any),
 }));
@@ -22,6 +22,10 @@ const icons = [
   '<path d="M12 3l8 3v5c0 4.5-3.4 8.6-8 10-4.6-1.4-8-5.5-8-10V6l8-3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>',
   // Smart Building — casa connessa
   '<path d="M4 11l8-7 8 7v9a2 2 0 01-2 2h-3v-6h-6v6H6a2 2 0 01-2-2v-9z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="12" cy="13" r="1.5" fill="currentColor"/>',
+  // Energia & generazione — sole/fotovoltaico
+  '<circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>',
+  // Infrastrutture & ICT — nodi di rete
+  '<circle cx="12" cy="5" r="2.2" stroke="currentColor" stroke-width="1.5"/><circle cx="5" cy="19" r="2.2" stroke="currentColor" stroke-width="1.5"/><circle cx="19" cy="19" r="2.2" stroke="currentColor" stroke-width="1.5"/><path d="M12 7.2v3.3m0 0l-5.4 6.2M12 10.5l5.4 6.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>',
 ];
 ---
 
@@ -39,7 +43,7 @@ const icons = [
       {items.map((item, i) => (
         <article
           class={`reveal group relative flex flex-col bg-brand-paper p-8 transition-colors hover:bg-brand-cream md:p-10 ${
-            i === 4 ? 'lg:col-span-1 lg:col-start-2' : ''
+            i === 6 ? 'lg:col-start-2' : ''
           }`}
         >
           <div class="flex items-start justify-between">

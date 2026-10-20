@@ -94,7 +94,7 @@ export const ui = {
     'fee.scenarios.2.tag2': 'Cashback futuro',
 
     'disciplines.eyebrow': 'Le nostre discipline',
-    'disciplines.title': 'Cinque discipline, un unico partner.',
+    'disciplines.title': 'Sette discipline, un unico partner.',
     'disciplines.items.0.title': 'Impianti elettrici',
     'disciplines.items.0.body':
       'Sistemi elettrici civili e industriali all\'avanguardia, con efficienza energetica e piena conformità normativa.',
@@ -110,6 +110,12 @@ export const ui = {
     'disciplines.items.4.title': 'Smart Building',
     'disciplines.items.4.body':
       'Domotica, BMS e dispositivi IoT per una gestione ottimizzata di energia, comfort e funzionalità.',
+    'disciplines.items.5.title': 'Energia & generazione',
+    'disciplines.items.5.body':
+      'Efficienza energetica, fotovoltaico e sistemi di generazione e accumulo per ridurre consumi e costi con piena sostenibilità.',
+    'disciplines.items.6.title': 'Infrastrutture & ICT',
+    'disciplines.items.6.body':
+      'Cablaggio strutturato, reti dati e infrastrutture ICT per una connettività affidabile e pronta al futuro.',
 
     'cases.eyebrow': 'Case study',
     'cases.title': 'Risultati misurabili, in cantiere.',
@@ -276,7 +282,7 @@ export const ui = {
     'fee.scenarios.2.tag2': 'Future cashback',
 
     'disciplines.eyebrow': 'Our disciplines',
-    'disciplines.title': 'Five disciplines, one partner.',
+    'disciplines.title': 'Seven disciplines, one partner.',
     'disciplines.items.0.title': 'Electrical systems',
     'disciplines.items.0.body':
       'Cutting-edge civil and industrial electrical systems with energy efficiency and full regulatory compliance.',
@@ -292,6 +298,12 @@ export const ui = {
     'disciplines.items.4.title': 'Smart Building',
     'disciplines.items.4.body':
       'Home automation, BMS and IoT devices for optimised energy, comfort and functionality management.',
+    'disciplines.items.5.title': 'Energy & generation',
+    'disciplines.items.5.body':
+      'Energy efficiency, photovoltaics and generation/storage systems to cut consumption and costs with full sustainability.',
+    'disciplines.items.6.title': 'Infrastructure & ICT',
+    'disciplines.items.6.body':
+      'Structured cabling, data networks and ICT infrastructure for reliable, future-ready connectivity.',
 
     'cases.eyebrow': 'Case studies',
     'cases.title': 'Measurable results, on site.',
