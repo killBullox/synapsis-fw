@@ -1,0 +1,155 @@
+---
+// Pagina dei video del concept di illuminazione di Villa Miramare: non indicizzata, non nel menu, esclusa dalla sitemap.
+// L'indirizzo www.synapsisfw.it/miramare è stampato (link e QR) nella relazione Concept Rev. 3: non cambiarlo.
+const base = '/media/miramare';
+const videos = [
+  {
+    src: `${base}/Villa_Miramare_arrivo_in_porto_con_cantonali.mp4`,
+    poster: `${base}/Villa_Miramare_poster_con_cantonali.jpg`,
+    caption: 'Video 1, con i cantonali',
+  },
+  {
+    src: `${base}/Villa_Miramare_arrivo_in_porto_senza_cantonali.mp4`,
+    poster: `${base}/Villa_Miramare_poster_senza_cantonali.jpg`,
+    caption: 'Video 2, senza i cantonali',
+  },
+];
+const title = 'Villa Miramare, concept di illuminazione della facciata | Synapsis FW';
+const ogTitle = title;
+const description = 'I due video mostrano in 22 secondi la facciata su via Nazario Sauro al tramonto, dal buio allo scenario Sera.';
+const fonts = 'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap';
+const site = Astro.site ?? new URL('https://www.synapsisfw.it');
+const pageUrl = new URL('/miramare', site).toString();
+const ogImage = new URL(videos[0].poster, site).toString();
+---
+
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#070F23" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={pageUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Synapsis FW" />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="1400" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Font del sito (Fraunces, Inter): caricati dallo script in fondo dopo il primo disegno del poster,
+         così da telefono (QR) la pagina appare subito con i font di sistema e poi passa ai font del sito -->
+    <noscript><link rel="stylesheet" href={fonts} /></noscript>
+    <link rel="preload" as="image" href={videos[0].poster} fetchpriority="high" />
+    <style>
+      :root {
+        --navy: #070F23; --navy-2: #0C1A36; --line: #22345A;
+        --ink: #ECF1FF; --muted: #B4C0DC; --amber: #F5B942;
+        --display: "Fraunces", "Times New Roman", Georgia, serif;
+        --body: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+        color-scheme: dark;
+      }
+      * { box-sizing: border-box; }
+      html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+      html, body { margin: 0; background: var(--navy); color: var(--ink); font: 17px/1.65 var(--body); -webkit-font-smoothing: antialiased; }
+      body { background: radial-gradient(80% 40% at 50% 0%, rgba(245,185,66,.10), transparent 70%), linear-gradient(180deg, var(--navy-2), var(--navy) 60%); min-height: 100vh; overflow-x: hidden; }
+      .wrap { max-width: 1160px; margin: 0 auto; padding-inline: 16px; }
+      @media (min-width: 768px) { .wrap { padding-inline: 32px; } }
+      .top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 18px; border-bottom: 1px solid var(--line); }
+      .top a { display: block; line-height: 0; }
+      .top img { height: 40px; width: auto; display: block; }
+      .top span { color: var(--muted); font-size: 13px; letter-spacing: .14em; text-transform: uppercase; }
+      .hero { padding-block: clamp(28px, 6vw, 56px) clamp(20px, 4vw, 36px); text-align: center; }
+      h1 { margin: 0 auto; font: 500 clamp(34px, 7vw, 64px)/1.08 var(--display); letter-spacing: -.01em; max-width: 18ch; text-wrap: balance; }
+      .sub { margin: 16px auto 0; color: var(--muted); font-size: clamp(17px, 2.2vw, 20px); max-width: 56ch; text-wrap: balance; }
+      .sub::before { content: ""; display: block; width: 48px; height: 2px; margin: 0 auto 16px; background: var(--amber); }
+      .videos { display: grid; grid-template-columns: minmax(0, 1fr); gap: 28px; }
+      @media (min-width: 768px) { .videos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; } }
+      figure { margin: 0; min-width: 0; }
+      .player { border-radius: 12px; padding: 1px; background: linear-gradient(135deg, rgba(245,185,66,.7), rgba(34,52,90,.7) 45%, rgba(245,185,66,.3)); box-shadow: 0 24px 70px rgba(0,0,0,.5); }
+      .player video { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: contain; border-radius: 11px; background: #000; }
+      figcaption { margin-top: 12px; font-size: 16px; font-weight: 600; color: var(--ink); }
+      figcaption::before { content: ""; display: inline-block; width: 10px; height: 10px; margin-right: 10px; border-radius: 50%; background: var(--amber); vertical-align: 1px; }
+      .text { max-width: 68ch; margin: clamp(36px, 6vw, 56px) auto 0; }
+      .text p { margin: 0 0 1.1em; }
+      .note { max-width: 68ch; margin: 12px auto 0; padding: 18px 20px; border-left: 3px solid var(--amber); background: rgba(236,241,255,.05); border-radius: 0 10px 10px 0; color: var(--muted); font-size: 16px; }
+      .note p { margin: 0; }
+      a { color: var(--amber); text-underline-offset: 3px; }
+      a:focus-visible, video:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+      .note a { overflow-wrap: anywhere; }
+      footer { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; justify-content: space-between; margin-top: clamp(36px, 6vw, 56px); padding-block: 22px 36px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+      footer a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--amber); }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="top">
+        <a href="/" aria-label="Synapsis FW, sito"><img src="/media/sfw-logo-bianco.png" alt="Synapsis FW" width="266" height="160" /></a>
+        <span>Concept Rev. 3</span>
+      </header>
+
+      <main>
+        <section class="hero">
+          <h1>Villa Miramare, le luci di Santa Lucia</h1>
+          <p class="sub">Concept di illuminazione della facciata su via Nazario Sauro, Napoli. I video dell'arrivo in porto.</p>
+        </section>
+
+        <section class="videos" aria-label="Video del concept">
+          {videos.map((v) => (
+            <figure>
+              <div class="player">
+                <video controls playsinline muted preload="metadata" poster={v.poster} width="1400" height="1400" aria-label={v.caption}>
+                  <source src={v.src} type="video/mp4" />
+                  Il browser non riproduce il video: <a href={v.src}>aprilo qui</a>.
+                </video>
+              </div>
+              <figcaption>{v.caption}</figcaption>
+            </figure>
+          ))}
+        </section>
+
+        <section class="text">
+          <p>I due video mostrano in 22 secondi la facciata su via Nazario Sauro al tramonto, dal buio allo scenario Sera. Il cielo si spegne e il coronamento si accende in dissolvenza sotto il cornicione e sotto la cornice della torretta; poi si accende il basamento. Le dieci lampare entrano una dopo l'altra, dall'angolo con via Cuma verso la pensilina, come le barche che rientrano in porto, e per qualche secondo ondeggiano piano prima di fermarsi. L'ultima ad accendersi è vicino all'ingresso, che chiude la sequenza: l'ultima barca attracca all'albergo.</p>
+          <p>La sola differenza tra i due è il livello dei cantonali. Nel primo le due lame sugli spigoli si accendono insieme al coronamento e segnano i limiti della villa, come i fari all'imboccatura di un porto; nel secondo la facciata si legge solo per fasce orizzontali, coronamento, basamento e lampare. Il confronto permette di valutare il contributo dei cantonali, che nella proposta restano un livello indipendente e si possono escludere senza toccare gli altri.</p>
+          <p>I tempi dei video sono compressi per la presentazione. In opera la sequenza dura alcuni minuti, parte ogni sera con l'orologio astronomico e si regola nella campionatura in sito. Le regolazioni sono quelle dello scenario Sera; le camere sono spente, per mostrare la facciata senza l'aiuto delle finestre accese.</p>
+        </section>
+
+        <aside class="note">
+          <p>Le immagini sono simulazioni del concept: posizioni, apparecchi e regolazioni si fissano nel progetto esecutivo. Per informazioni: <a href="mailto:info@synapsisfw.it">info@synapsisfw.it</a></p>
+        </aside>
+      </main>
+
+      <footer>
+        <span>Synapsis FW S.r.l. · Napoli</span>
+        <a href="/">synapsisfw.it</a>
+      </footer>
+    </div>
+    <script is:inline define:vars={{ fonts }}>
+      (function () {
+        var done = false;
+        function loadFonts() {
+          if (done) return;
+          done = true;
+          var l = document.createElement('link');
+          l.rel = 'stylesheet';
+          l.href = fonts;
+          document.head.appendChild(l);
+        }
+        try {
+          new PerformanceObserver(function () { setTimeout(loadFonts, 300); })
+            .observe({ type: 'largest-contentful-paint', buffered: true });
+        } catch (e) {}
+        window.addEventListener('load', function () { setTimeout(loadFonts, 1500); });
+      })();
+    </script>
+  </body>
+</html>

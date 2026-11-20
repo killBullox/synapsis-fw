@@ -11,7 +11,7 @@ export default defineConfig({
       prefixDefaultLocale: false,
     },
   },
-  integrations: [sitemap({ filter: (page) => !page.includes('/wechiaia') && !page.includes('/performace') })],
+  integrations: [sitemap({ filter: (page) => !page.includes('/wechiaia') && !page.includes('/performace') && !page.includes('/miramare') })],
   vite: {
     plugins: [tailwindcss()],
   },

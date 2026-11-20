@@ -2,6 +2,12 @@
 # Synapsis FW — Apache config per Aruba Hosting Easy Linux
 # =============================================================================
 
+# /miramare (link e QR stampati): niente redirect di mod_dir verso /miramare/,
+# la pagina è servita dalla RewriteRule più sotto
+<If "%{REQUEST_URI} == '/miramare'">
+  DirectorySlash Off
+</If>
+
 # UTF-8 default per file di testo
 AddDefaultCharset UTF-8
 
@@ -20,6 +26,10 @@ DirectoryIndex index.html index.htm index.php
 
   # NOTA: Aruba forza www lato server, quindi NON facciamo redirect www→non-www
   # Il dominio canonical è www.synapsisfw.it
+
+  # /miramare senza slash servita direttamente (200, nessun redirect):
+  # link e QR stampati nella relazione Villa Miramare puntano a questo indirizzo esatto
+  RewriteRule ^miramare$ /miramare/index.html [L]
 
   # Trailing slash per directory (Astro genera /privacy/index.html)
   RewriteCond %{REQUEST_FILENAME} !-f
